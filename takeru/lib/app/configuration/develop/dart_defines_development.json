@@ -1,0 +1,9 @@
+{
+    "flavor": "develop",
+    "appId": "jp.co.eln.stamp_rally_takeru.development",
+    "iosAppId": "jp.co.eln.stampRallyTakeru.development",
+    "appNameIos": "日本武尊スタンプラリー",
+    "appNameAndroid": "日本武尊スタンプラリー",
+    "supabaseUrl": "https://zooleonemjdnxakyazek.supabase.co",
+    "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpvb2xlb25lbWpkbnhha3lhemVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc1Mjg0NTcsImV4cCI6MjA0MzEwNDQ1N30.Zha0YfRfyh3bTv0NAyYCb8LtSaZIcdgn82QxXSk_6ko"
+}
