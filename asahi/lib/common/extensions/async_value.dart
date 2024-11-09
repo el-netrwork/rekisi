@@ -10,9 +10,7 @@ extension GlobalKeyEntention on GlobalKey {
   Future<Uint8List> createWidgetImage() async {
     final boundary =
         currentContext!.findRenderObject()! as RenderRepaintBoundary;
-    if (boundary.debugNeedsPaint) {
-      await Future.delayed(const Duration(milliseconds: 300));
-    }
+    await Future.delayed(const Duration(milliseconds: 300));
     final image = await boundary.toImage();
     final byteData = await image.toByteData(format: ImageByteFormat.png);
     final pngBytes = byteData!.buffer.asUint8List();

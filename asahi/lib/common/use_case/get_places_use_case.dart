@@ -25,13 +25,10 @@ Future<List<PlaceModel>> getPlacesUseCase(GetPlacesUseCaseRef ref) async {
     // データが存在しない場合は、削除
     json.removeWhere(
         (element) => (element['historicSpotId'] as String).isEmpty);
-
-
-    final data = json
+    print(json);
+    return json
         .map((o) => PlaceModel.fromAsset(data: PlaceDTO.fromJson(o)))
         .toList();
-    return data;
-
   } catch (e, st) {
     Flogger.e('[GetPlaceUseCase]', error: e, stackTrace: st);
   }

@@ -42,9 +42,9 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-flutter.minSdkVersion = 24
-flutter.compileSdkVersion = 34
-flutter.targetSdkVersion = 34
+// flutter.minSdkVersion = 24
+// flutter.compileSdkVersion = 34
+// flutter.targetSdkVersion = 34
 
 android {
     namespace "jp.co.eln.stamprally"

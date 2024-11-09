@@ -192,46 +192,46 @@ class _CompleteButton extends HookConsumerWidget {
                 final pngBytes = await globalKey.createWidgetImage();
 
                 // 結果を保存
-                final result =
-                    await ImageGallerySaver.saveImage(quality: 100, pngBytes);
-              }, context, "保存に成功しました。", "保存に失敗しました。再度やり直してください。", false);
+                await ImageGallerySaver.saveImage(quality: 100, pngBytes);
 
-              // 1秒後にダイアログを出す。
-              Future.delayed(const Duration(microseconds: 500), () {
-                context.pop();
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text("達成カードをアルバムに保存しました！"),
-                        content: const Text("よろしければ、アプリのフィードバックをメールで送ってください。"),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              context.pop();
-                            },
-                            style: TextButton.styleFrom(
-                                foregroundColor: context.colors.primary),
-                            child: Text(
-                              "戻る",
-                              style: TextStyle(color: context.colors.primary),
+                // 1秒後にダイアログを出す。
+                Future.delayed(const Duration(microseconds: 500), () {
+                  context.pop();
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text("達成カードをアルバムに保存しました！"),
+                          content:
+                              const Text("よろしければ、アプリのフィードバックをメールで送ってください。"),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                context.pop();
+                              },
+                              style: TextButton.styleFrom(
+                                  foregroundColor: context.colors.primary),
+                              child: Text(
+                                "戻る",
+                                style: TextStyle(color: context.colors.primary),
+                              ),
                             ),
-                          ),
-                          TextButton(
-                            onPressed: () async {
-                              await OpenAnotherUrlService.openEmail();
-                            },
-                            style: TextButton.styleFrom(
-                                foregroundColor: context.colors.primary),
-                            child: Text(
-                              "送る",
-                              style: TextStyle(color: context.colors.primary),
+                            TextButton(
+                              onPressed: () async {
+                                await OpenAnotherUrlService.openEmail();
+                              },
+                              style: TextButton.styleFrom(
+                                  foregroundColor: context.colors.primary),
+                              child: Text(
+                                "送る",
+                                style: TextStyle(color: context.colors.primary),
+                              ),
                             ),
-                          ),
-                        ],
-                      );
-                    });
-              });
+                          ],
+                        );
+                      });
+                });
+              }, context, "保存に成功しました。", "保存に失敗しました。再度やり直してください。", false);
             },
             child: const Text(
               "達成カードをアルバムに保存する",
