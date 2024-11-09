@@ -1,0 +1,5 @@
+base_locale: ja
+input_directory: assets/localization
+input_file_pattern: .i18n.yaml
+output_directory: lib/assets/localization
+timestamp: false
