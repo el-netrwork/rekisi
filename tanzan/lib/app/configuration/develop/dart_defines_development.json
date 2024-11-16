@@ -1,0 +1,9 @@
+{
+    "flavor": "develop",
+    "appId": "jp.co.eln.stamp_rally_jinguu7.development",
+    "iosAppId": "jp.co.eln.stampRallyJinguu7.development",
+    "appNameIos": "神宮125社⑦内宮巡拝",
+    "appNameAndroid": "神宮125社⑦内宮巡拝",
+    "supabaseUrl": "https://zooleonemjdnxakyazek.supabase.co",
+    "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpvb2xlb25lbWpkbnhha3lhemVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc1Mjg0NTcsImV4cCI6MjA0MzEwNDQ1N30.Zha0YfRfyh3bTv0NAyYCb8LtSaZIcdgn82QxXSk_6ko"
+}
