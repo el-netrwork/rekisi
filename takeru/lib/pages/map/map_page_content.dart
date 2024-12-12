@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stamp_rally/common/components/custom_network_image.dart';
+
+import '../../core/common/components/custom_network_image.dart';
 
 class MapPageContent extends StatelessWidget {
   const MapPageContent({super.key});

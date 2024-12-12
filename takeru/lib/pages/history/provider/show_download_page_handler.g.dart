@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_stamp_use_case_provider.dart';
+part of 'show_download_page_handler.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$registerStampUseCaseHash() =>
-    r'f9b276662d1dcc69afe3eee29381efcc8f2e6a44';
+String _$showDownloadPageHandlerHash() =>
+    r'e5e11834eda483525ad6c35b462e8b635ce20409';
 
-/// See also [RegisterStampUseCase].
-@ProviderFor(RegisterStampUseCase)
-final registerStampUseCaseProvider = AutoDisposeNotifierProvider<
-    RegisterStampUseCase, RegisterStampState>.internal(
-  RegisterStampUseCase.new,
-  name: r'registerStampUseCaseProvider',
+/// See also [ShowDownloadPageHandler].
+@ProviderFor(ShowDownloadPageHandler)
+final showDownloadPageHandlerProvider =
+    NotifierProvider<ShowDownloadPageHandler, bool>.internal(
+  ShowDownloadPageHandler.new,
+  name: r'showDownloadPageHandlerProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$registerStampUseCaseHash,
+      : _$showDownloadPageHandlerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$RegisterStampUseCase = AutoDisposeNotifier<RegisterStampState>;
+typedef _$ShowDownloadPageHandler = Notifier<bool>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

@@ -1,8 +1,7 @@
 import 'dart:convert';
-
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stamp_rally/common/data/model/csv_model.dart';
 import 'package:stamp_rally/core/flogger.dart';
+import '../data/model/csv_model.dart';
 
 part 'convert_csv_to_json_use_case.g.dart';
 
