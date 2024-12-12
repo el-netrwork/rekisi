@@ -1,6 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stamp_rally/common/data/model/complete_card_model.dart';
-import 'package:stamp_rally/features/complete_card/repository/complete_card_repository.dart';
+import 'package:stamp_rally/pages/history/repository/complete_card_repository.dart';
+
+import '../../../core/common/data/model/complete_card_model.dart';
 
 part 'fetch_complete_card_use_case.g.dart';
 

@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/common/use_case/get_places_use_case.dart';
-import 'package:stamp_rally/features/stamp/repository/stamp_repository.dart';
+import 'package:stamp_rally/core/common/data/model/place_model.dart';
+import 'package:stamp_rally/core/common/use_case/get_places_use_case.dart';
+import 'package:stamp_rally/core/features/stamp/repository/stamp_repository.dart';
 
 part 'fetch_stamped_place_use_case_provider.g.dart';
 

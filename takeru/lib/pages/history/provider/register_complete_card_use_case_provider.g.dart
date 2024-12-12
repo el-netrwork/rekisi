@@ -7,7 +7,7 @@ part of 'register_complete_card_use_case_provider.dart';
 // **************************************************************************
 
 String _$registerCompleteCardUseCaseHash() =>
-    r'33b3f9cd7bd5bebc0151a8992202f651c7fdf03f';
+    r'd576b89459dc0ec0c578b4342da85c53bbd86218';
 
 /// See also [RegisterCompleteCardUseCase].
 @ProviderFor(RegisterCompleteCardUseCase)

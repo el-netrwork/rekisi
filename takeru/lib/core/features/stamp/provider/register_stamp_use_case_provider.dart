@@ -1,14 +1,12 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stamp_rally/app/configuration/configuration.dart';
-import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/common/data/dto/stamp_dto.dart';
-import 'package:stamp_rally/common/services/location_service.dart';
+import 'package:stamp_rally/core/common/data/dto/stamp_dto.dart';
+import 'package:stamp_rally/core/common/data/model/place_model.dart';
+import 'package:stamp_rally/core/common/services/location_service.dart';
+import 'package:stamp_rally/core/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
+import 'package:stamp_rally/core/features/stamp/repository/stamp_repository.dart';
 import 'package:stamp_rally/core/flogger.dart';
-import 'package:stamp_rally/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
-import 'package:stamp_rally/features/stamp/repository/stamp_repository.dart';
-
-import '../../../core/log_mabager/dto/log_dto.dart';
-import '../../../core/log_mabager/repository/log_manager_repository.dart';
+import 'package:stamp_rally/core/log_manager/dto/log_dto.dart';
+import 'package:stamp_rally/core/log_manager/repository/log_manager_repository.dart';
 
 part 'register_stamp_use_case_provider.g.dart';
 
