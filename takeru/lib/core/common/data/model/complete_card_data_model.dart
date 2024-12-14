@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:stamp_rally/common/data/dto/complete_card_data_dto.dart';
+
+import '../dto/complete_card_data_dto.dart';
 
 part 'complete_card_data_model.freezed.dart';
 

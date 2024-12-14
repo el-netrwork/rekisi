@@ -1,4 +1,3 @@
-import 'package:stamp_rally/common/components/custom_network_image.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -7,11 +6,13 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:intl/intl.dart';
 import 'package:stamp_rally/app/themes/custom_theme.dart';
 import 'package:stamp_rally/assets/assets.gen.dart';
-import 'package:stamp_rally/common/components/loading_snack_bar.dart';
-import 'package:stamp_rally/common/extensions/async_value.dart';
-import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/complete_card_scoped_provider.dart';
-import 'package:stamp_rally/features/complete_card/provider/fetch_complete_card_use_case.dart';
+import 'package:stamp_rally/core/common/extensions/async_value.dart';
+import 'package:stamp_rally/pages/history/provider/complete_card_scoped_provider.dart';
+import 'package:stamp_rally/pages/history/provider/fetch_complete_card_use_case.dart';
+
+import '../../../core/common/components/custom_network_image.dart';
+import '../../../core/common/components/loading_snack_bar.dart';
+import '../../../core/common/services/open_another_url_service.dart';
 
 void showCompleteCardDialog(BuildContext context) {
   showGeneralDialog(

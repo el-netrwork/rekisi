@@ -1,8 +1,9 @@
 import 'dart:convert';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stamp_rally/common/data/dto/complete_card_dto.dart';
 import 'package:stamp_rally/core/shared_preferences_provider.dart';
+
+import '../../../core/common/data/dto/complete_card_dto.dart';
 
 part 'complete_card_repository.g.dart';
 
@@ -18,9 +19,6 @@ class CompleteCardRepository {
 
   // 達成カード登録
   Future<void> register(CompleteCardDto dto) async {
-    // if ((await isExist())) {
-    //   throw Exception("Data is Exist");
-    // }
     final pref = await ref.read(sharedPreferencesProvider.future);
 
     final data = json.encode(dto.toJson());

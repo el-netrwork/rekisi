@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stamp_rally/app/themes/custom_theme.dart';
-import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
+import 'package:stamp_rally/pages/history/provider/place_scoped_provider.dart';
 
 import '../../home/home_page_child.dart';
 import '../../home/home_state.dart';

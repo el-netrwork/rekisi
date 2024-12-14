@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:stamp_rally/common/data/dto/place_dto.dart';
+
+import '../dto/place_dto.dart';
 
 part 'place_model.freezed.dart';
 

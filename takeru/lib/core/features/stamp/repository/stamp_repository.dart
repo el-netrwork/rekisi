@@ -2,10 +2,9 @@ import 'dart:convert';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import '../../../common/data/dto/stamp_dto.dart';
-import '../../../core/flogger.dart';
-import '../../../core/shared_preferences_provider.dart';
+import 'package:stamp_rally/core/common/data/dto/stamp_dto.dart';
+import 'package:stamp_rally/core/flogger.dart';
+import 'package:stamp_rally/core/shared_preferences_provider.dart';
 
 part 'stamp_repository.g.dart';
 
