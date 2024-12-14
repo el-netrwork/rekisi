@@ -3,7 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:stamp_rally/app/themes/custom_theme.dart';
 import 'package:stamp_rally/assets/localization/strings.g.dart';
-import 'package:stamp_rally/features/stamp/provider/register_stamp_use_case_provider.dart';
+import 'package:stamp_rally/core/features/stamp/provider/register_stamp_use_case_provider.dart';
 import 'package:stamp_rally/pages/home/home_page_child.dart';
 import 'package:stamp_rally/pages/home/home_state.dart';
 import 'widget/code_scanner_alert_dialog.dart';
@@ -18,12 +18,12 @@ class CodeScannerPageContent extends ConsumerWidget {
     }
     ref.listen(registerStampUseCaseProvider, (previous, next) {
       switch (next) {
-      // 成功時、画面遷移
+        // 成功時、画面遷移
         case Success():
           ref
               .read(homeStateNotifierProvider.notifier)
               .setPage(HomePageChild.history);
-      // 範囲外の場合
+        // 範囲外の場合
         case OverDistance():
           CodeScannerAlertDialog(context).show();
         default:

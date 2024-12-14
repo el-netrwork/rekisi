@@ -1,4 +1,3 @@
-import 'package:stamp_rally/common/components/custom_network_image.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -7,11 +6,13 @@ import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:intl/intl.dart';
 import 'package:stamp_rally/app/themes/custom_theme.dart';
 import 'package:stamp_rally/assets/assets.gen.dart';
-import 'package:stamp_rally/common/components/loading_snack_bar.dart';
-import 'package:stamp_rally/common/extensions/async_value.dart';
-import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/complete_card_scoped_provider.dart';
-import 'package:stamp_rally/features/complete_card/provider/fetch_complete_card_use_case.dart';
+import 'package:stamp_rally/core/common/extensions/async_value.dart';
+import 'package:stamp_rally/pages/history/provider/complete_card_scoped_provider.dart';
+import 'package:stamp_rally/pages/history/provider/fetch_complete_card_use_case.dart';
+
+import '../../../core/common/components/custom_network_image.dart';
+import '../../../core/common/components/loading_snack_bar.dart';
+import '../../../core/common/services/open_another_url_service.dart';
 
 void showCompleteCardDialog(BuildContext context) {
   showGeneralDialog(
@@ -136,7 +137,7 @@ class _CompleteCard extends HookConsumerWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
@@ -192,44 +193,48 @@ class _CompleteButton extends HookConsumerWidget {
                 final pngBytes = await globalKey.createWidgetImage();
 
                 // 結果を保存
-                await ImageGallerySaver.saveImage(quality: 100, pngBytes);
+                await ImageGallerySaver.saveImage(quality: 10, pngBytes);
 
                 // 1秒後にダイアログを出す。
                 Future.delayed(const Duration(microseconds: 500), () {
-                  context.pop();
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text("達成カードをアルバムに保存しました！"),
-                          content:
-                              const Text("よろしければ、アプリのフィードバックをメールで送ってください。"),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                context.pop();
-                              },
-                              style: TextButton.styleFrom(
-                                  foregroundColor: context.colors.primary),
-                              child: Text(
-                                "戻る",
-                                style: TextStyle(color: context.colors.primary),
+                  if (context.mounted) {
+                    context.pop();
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("達成カードをアルバムに保存しました！"),
+                            content:
+                                const Text("よろしければ、アプリのフィードバックをメールで送ってください。"),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  context.pop();
+                                },
+                                style: TextButton.styleFrom(
+                                    foregroundColor: context.colors.primary),
+                                child: Text(
+                                  "戻る",
+                                  style:
+                                      TextStyle(color: context.colors.primary),
+                                ),
                               ),
-                            ),
-                            TextButton(
-                              onPressed: () async {
-                                await OpenAnotherUrlService.openEmail();
-                              },
-                              style: TextButton.styleFrom(
-                                  foregroundColor: context.colors.primary),
-                              child: Text(
-                                "送る",
-                                style: TextStyle(color: context.colors.primary),
+                              TextButton(
+                                onPressed: () async {
+                                  await OpenAnotherUrlService.openEmail();
+                                },
+                                style: TextButton.styleFrom(
+                                    foregroundColor: context.colors.primary),
+                                child: Text(
+                                  "送る",
+                                  style:
+                                      TextStyle(color: context.colors.primary),
+                                ),
                               ),
-                            ),
-                          ],
-                        );
-                      });
+                            ],
+                          );
+                        });
+                  }
                 });
               }, context, "保存に成功しました。", "保存に失敗しました。再度やり直してください。", false);
             },

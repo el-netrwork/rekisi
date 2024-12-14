@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stamp_rally/assets/localization/strings.g.dart';
 
-import '../../common/services/location_service.dart';
+import '../../core/common/services/location_service.dart';
 import 'home_state.dart';
 
 class HomePage extends HookConsumerWidget {
@@ -17,7 +17,8 @@ class HomePage extends HookConsumerWidget {
         Duration.zero,
         () async {
           await ref.read(locationServiceProvider).requestPermission();
-          ref.read(homeStateNotifierProvider.notifier).setIsLocationAllow(await ref.read(locationServiceProvider).isPermissionAllow);
+          ref.read(homeStateNotifierProvider.notifier).setIsLocationAllow(
+              await ref.read(locationServiceProvider).isPermissionAllow);
         },
       );
       return null;
@@ -25,12 +26,20 @@ class HomePage extends HookConsumerWidget {
     return Scaffold(
       bottomNavigationBar: NavigationBar(
         selectedIndex: state.pageIndex,
-        onDestinationSelected: (i) => ref.read(homeStateNotifierProvider.notifier).setPageIndex(i),
+        onDestinationSelected: (i) =>
+            ref.read(homeStateNotifierProvider.notifier).setPageIndex(i),
         destinations: [
-          NavigationDestination(icon: const Icon(Icons.temple_buddhist), label: t.navigationBar.top),
-          NavigationDestination(icon: const Icon(Icons.map_sharp), label: t.navigationBar.map),
-          NavigationDestination(icon: const Icon(Icons.camera_alt), label: t.navigationBar.camera),
-          NavigationDestination(icon: const Icon(Icons.history_rounded), label: t.navigationBar.history),
+          NavigationDestination(
+              icon: const Icon(Icons.temple_buddhist),
+              label: t.navigationBar.top),
+          NavigationDestination(
+              icon: const Icon(Icons.map_sharp), label: t.navigationBar.map),
+          NavigationDestination(
+              icon: const Icon(Icons.camera_alt),
+              label: t.navigationBar.camera),
+          NavigationDestination(
+              icon: const Icon(Icons.history_rounded),
+              label: t.navigationBar.history),
         ],
       ),
       body: SafeArea(
