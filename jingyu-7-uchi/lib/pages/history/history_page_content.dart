@@ -4,15 +4,15 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stamp_rally/app/themes/custom_theme.dart';
 import 'package:stamp_rally/assets/assets.gen.dart';
-import 'package:stamp_rally/common/components/custom_network_image.dart';
-import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/register_complete_card_use_case_provider.dart';
-import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
-import 'package:stamp_rally/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
+import 'package:stamp_rally/core/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/register_complete_card_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/place_scoped_provider.dart';
 import 'package:stamp_rally/pages/history/widget/alert_qr_register_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/complete_card_dialog.dart';
-import 'controller/history_page_content_controller_keep_alive.dart';
+import '../../core/common/components/custom_network_image.dart';
+import '../../core/common/data/model/place_model.dart';
+import '../../core/common/services/open_another_url_service.dart';
+import 'provider/show_download_page_handler.dart';
 import 'widget/alert_gps_register_dialog.dart';
 
 class HistoryPageContent extends HookConsumerWidget {
@@ -51,9 +51,7 @@ class HistoryPageContent extends HookConsumerWidget {
     });
 
     final stampAsync = ref.watch(fetchStampedPlaceUseCaseProvider);
-    final isShowDownloadMessage = ref.watch(
-        historyPageContentControllerKeepAliveProvider
-            .select((value) => value.isShowDownloadMessage));
+    final isShowDownloadMessage = ref.watch(showDownloadPageHandlerProvider);
     return switch (stampAsync) {
       AsyncData(:final value) => MediaQuery(
           data:
@@ -87,10 +85,9 @@ class HistoryPageContent extends HookConsumerWidget {
                                 child: IconButton(
                                   onPressed: () {
                                     ref
-                                        .read(
-                                            historyPageContentControllerKeepAliveProvider
-                                                .notifier)
-                                        .hideMessage();
+                                        .read(showDownloadPageHandlerProvider
+                                            .notifier)
+                                        .hide();
                                   },
                                   color: Colors.black,
                                   iconSize: 20,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:stamp_rally/app/themes/custom_theme.dart';
-import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
-import '../../../assets/localization/strings.g.dart';
-import '../../../features/stamp/provider/register_stamp_use_case_provider.dart';
+import 'package:stamp_rally/assets/localization/strings.g.dart';
+import 'package:stamp_rally/core/common/data/model/place_model.dart';
+import 'package:stamp_rally/core/features/stamp/provider/register_stamp_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/place_scoped_provider.dart';
 
 class AlertGpsRegisterDialog extends ConsumerWidget {
   const AlertGpsRegisterDialog({super.key});
