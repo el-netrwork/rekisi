@@ -2,8 +2,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stamp_rally/app/configuration/configuration.dart';
 import 'package:stamp_rally/common/data/dto/place_dto.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/common/use_case/convert_csv_to_json_use_case.dart';
-import 'package:stamp_rally/common/use_case/get_csv_from_asset_use_case.dart';
+import 'package:stamp_rally/common/services/convert_csv_to_json_use_case.dart';
+import 'package:stamp_rally/common/services/get_csv_from_asset_use_case.dart';
 import 'package:stamp_rally/core/flogger.dart';
 
 part 'get_places_use_case.g.dart';

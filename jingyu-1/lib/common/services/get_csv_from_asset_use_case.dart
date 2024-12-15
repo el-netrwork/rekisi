@@ -9,6 +9,7 @@ import 'package:stamp_rally/core/flogger.dart';
 
 part 'get_csv_from_asset_use_case.g.dart';
 
+
 @riverpod
 Future<CsvModel?> getCsvFromAssetUseCase(GetCsvFromAssetUseCaseRef ref, {required String url}) async {
   try {
