@@ -31,6 +31,10 @@ class $AssetsPngGen {
   AssetGenImage get dummyItemBg =>
       const AssetGenImage('assets/png/dummy_item_bg.png');
 
+  /// File path: assets/png/google_map.png
+  AssetGenImage get googleMap =>
+      const AssetGenImage('assets/png/google_map.png');
+
   /// File path: assets/png/siori.png
   AssetGenImage get siori => const AssetGenImage('assets/png/siori.png');
 
@@ -44,6 +48,7 @@ class $AssetsPngGen {
         completeCardUp,
         conguraturation,
         dummyItemBg,
+        googleMap,
         siori,
         stamp
       ];

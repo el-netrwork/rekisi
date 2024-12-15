@@ -7,7 +7,7 @@ part of 'register_stamp_use_case_provider.dart';
 // **************************************************************************
 
 String _$registerStampUseCaseHash() =>
-    r'f9b276662d1dcc69afe3eee29381efcc8f2e6a44';
+    r'3f23d925ce55d2c4e5ff7beb1e1fd851600b202b';
 
 /// See also [RegisterStampUseCase].
 @ProviderFor(RegisterStampUseCase)
