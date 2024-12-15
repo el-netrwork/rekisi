@@ -136,7 +136,7 @@ class HistoryPageContent extends HookConsumerWidget {
                             onPressed: value
                                     .where((e) => e.isStamped == false)
                                     .toList()
-                                    .isNotEmpty
+                                    .isEmpty
                                 ? () async {
                                     // 完了カード作成
                                     await ref
