@@ -136,7 +136,7 @@ class _CompleteCard extends HookConsumerWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
