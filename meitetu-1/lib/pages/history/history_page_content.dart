@@ -320,7 +320,7 @@ class _Item extends ConsumerWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Assets.png.siori.image(height: 25, width: 25),
+                              Assets.png.siori.image(height: 18, width: 18),
                               Text("しおり",
                                   style: TextStyle(
                                     fontSize: 12,
@@ -342,6 +342,7 @@ class _Item extends ConsumerWidget {
                                   meter: place.gpsMeter.toDouble(),
                                   lat: place.latitude,
                                   lon: place.longitude);
+                          // 距離圏内 & サンプルの場合は取得可能。
                           if ((isWithin ||
                               place.typeRegisterStamp ==
                                   TypeRegisterStamp.sample) && context.mounted) {
@@ -377,7 +378,7 @@ class _Item extends ConsumerWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Assets.png.get.image(height: 18, width: 18),
+                              Assets.png.get.image(height: 18, width: 14),
                               Text("取得",
                                   style: TextStyle(
                                     fontSize: 12,

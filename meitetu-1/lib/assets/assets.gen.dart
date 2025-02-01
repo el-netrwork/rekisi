@@ -48,6 +48,10 @@ class $AssetsPngGen {
   AssetGenImage get worshipCard =>
       const AssetGenImage('assets/png/worship_card.png');
 
+  /// File path: assets/png/worship_card_image.png
+  AssetGenImage get worshipCardImage =>
+      const AssetGenImage('assets/png/worship_card_image.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
         complete,
@@ -59,7 +63,8 @@ class $AssetsPngGen {
         googleMap,
         siori,
         stamp,
-        worshipCard
+        worshipCard,
+        worshipCardImage
       ];
 }
 
