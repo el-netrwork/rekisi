@@ -25,6 +25,7 @@ mixin _$PlaceModel {
   TypeRegisterStamp get typeRegisterStamp => throw _privateConstructorUsedError;
   int get gpsMeter => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  String get img => throw _privateConstructorUsedError;
   String get proverbs => throw _privateConstructorUsedError;
   bool get isStamped => throw _privateConstructorUsedError;
   List<DateTime> get stampedDateTimeList => throw _privateConstructorUsedError;
@@ -50,6 +51,7 @@ abstract class $PlaceModelCopyWith<$Res> {
       TypeRegisterStamp typeRegisterStamp,
       int gpsMeter,
       String url,
+      String img,
       String proverbs,
       bool isStamped,
       List<DateTime> stampedDateTimeList});
@@ -77,6 +79,7 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
     Object? typeRegisterStamp = null,
     Object? gpsMeter = null,
     Object? url = null,
+    Object? img = null,
     Object? proverbs = null,
     Object? isStamped = null,
     Object? stampedDateTimeList = null,
@@ -118,6 +121,10 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      img: null == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
+              as String,
       proverbs: null == proverbs
           ? _value.proverbs
           : proverbs // ignore: cast_nullable_to_non_nullable
@@ -152,6 +159,7 @@ abstract class _$$PlaceModelImplCopyWith<$Res>
       TypeRegisterStamp typeRegisterStamp,
       int gpsMeter,
       String url,
+      String img,
       String proverbs,
       bool isStamped,
       List<DateTime> stampedDateTimeList});
@@ -177,6 +185,7 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
     Object? typeRegisterStamp = null,
     Object? gpsMeter = null,
     Object? url = null,
+    Object? img = null,
     Object? proverbs = null,
     Object? isStamped = null,
     Object? stampedDateTimeList = null,
@@ -218,6 +227,10 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      img: null == img
+          ? _value.img
+          : img // ignore: cast_nullable_to_non_nullable
+              as String,
       proverbs: null == proverbs
           ? _value.proverbs
           : proverbs // ignore: cast_nullable_to_non_nullable
@@ -247,6 +260,7 @@ class _$PlaceModelImpl extends _PlaceModel {
       required this.typeRegisterStamp,
       this.gpsMeter = 50,
       this.url = '',
+      this.img = '参拝カード.png',
       this.proverbs = '',
       this.isStamped = false,
       final List<DateTime> stampedDateTimeList = const []})
@@ -275,6 +289,9 @@ class _$PlaceModelImpl extends _PlaceModel {
   final String url;
   @override
   @JsonKey()
+  final String img;
+  @override
+  @JsonKey()
   final String proverbs;
   @override
   @JsonKey()
@@ -291,7 +308,7 @@ class _$PlaceModelImpl extends _PlaceModel {
 
   @override
   String toString() {
-    return 'PlaceModel(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs, isStamped: $isStamped, stampedDateTimeList: $stampedDateTimeList)';
+    return 'PlaceModel(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, img: $img, proverbs: $proverbs, isStamped: $isStamped, stampedDateTimeList: $stampedDateTimeList)';
   }
 
   @override
@@ -315,6 +332,7 @@ class _$PlaceModelImpl extends _PlaceModel {
             (identical(other.gpsMeter, gpsMeter) ||
                 other.gpsMeter == gpsMeter) &&
             (identical(other.url, url) || other.url == url) &&
+            (identical(other.img, img) || other.img == img) &&
             (identical(other.proverbs, proverbs) ||
                 other.proverbs == proverbs) &&
             (identical(other.isStamped, isStamped) ||
@@ -335,6 +353,7 @@ class _$PlaceModelImpl extends _PlaceModel {
       typeRegisterStamp,
       gpsMeter,
       url,
+      img,
       proverbs,
       isStamped,
       const DeepCollectionEquality().hash(_stampedDateTimeList));
@@ -357,6 +376,7 @@ abstract class _PlaceModel extends PlaceModel {
       required final TypeRegisterStamp typeRegisterStamp,
       final int gpsMeter,
       final String url,
+      final String img,
       final String proverbs,
       final bool isStamped,
       final List<DateTime> stampedDateTimeList}) = _$PlaceModelImpl;
@@ -380,6 +400,8 @@ abstract class _PlaceModel extends PlaceModel {
   int get gpsMeter;
   @override
   String get url;
+  @override
+  String get img;
   @override
   String get proverbs;
   @override

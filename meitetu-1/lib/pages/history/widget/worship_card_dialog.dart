@@ -9,6 +9,9 @@ import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
 
+import '../../../app/configuration/configuration.dart';
+import '../../../common/components/custom_network_image.dart';
+
 String formatJapaneseDate(DateTime date) {
   final japaneseEra = date.year - 2018; // 令和は2019年から
   final weekDayNames = ['日', '月', '火', '水', '木', '金', '土'];
@@ -90,91 +93,87 @@ class _WorshipCard extends HookConsumerWidget {
                 ),
                 Expanded(
                     child: Column(
-                      children: [
-                        // Flexibleにして、大きさは小さく
-                        // 文字サイズは、文字数が多い場合は、文字を小さくする。
-                        Flexible(
-                          flex: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 25),
-                            child: Text(
-                              place.name,
-                              style: GoogleFonts.sawarabiMincho(
-                                  textStyle: const TextStyle(
-                                      fontWeight: FontWeight.bold),
-                                  fontSize: 27.0,
-                                  color: Colors.purple),
-                              // style: const TextStyle(
-                              //     fontFamily: 'HGP行書体',
-                              //     fontSize: 27,
-                              //     color: Colors.purple,
-                              //     fontWeight: FontWeight.w500,
-                              //     fontStyle: FontStyle.italic),
+                  children: [
+                    // Flexibleにして、大きさは小さく
+                    // 文字サイズは、文字数が多い場合は、文字を小さくする。
+                    Flexible(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25),
+                        child: Text(
+                          place.name,
+                          style: GoogleFonts.sawarabiMincho(
+                              textStyle:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                              fontSize: 27.0,
+                              color: Colors.purple),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 4,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 2),
+                        child: Center(
+                          child: Text(
+                            place.proverbs,
+                            style: GoogleFonts.sawarabiMincho(
+                              textStyle:
+                                  const TextStyle(fontWeight: FontWeight.w500),
+                              fontSize: 15.0,
                             ),
                           ),
                         ),
-                        Expanded(
-                          flex: 4,
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 2),
-                            child: Text(
-                              place.proverbs,
-                              style: GoogleFonts.sawarabiMincho(
-                                textStyle: const TextStyle(
-                                    fontWeight: FontWeight.w500),
-                                fontSize: 15.0,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: CustomNetworkImage.fromAsset(
+                          place.img,
+                        ),
+                      ),
+                    ),
+
+                    // const Expanded(
+                    //     flex: 3,
+                    //     child: Text(
+                    //       "No. 000000001",
+                    //       style: TextStyle(
+                    //           color: Colors.black,
+                    //           fontWeight: FontWeight.bold,
+                    //           fontSize: 30),
+                    //     )),
+                    Expanded(
+                        flex: 4,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'ID: ${place.historicSpotId}',
+                                style: const TextStyle(color: Colors.black),
                               ),
                             ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Assets.png.worshipCardImage.image(
-                              fit: BoxFit.contain,
+                            Expanded(
+                              child: Text(
+                                place.areaName,
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 16),
+                              ),
                             ),
-                          ),
-                        ),
-
-                        // const Expanded(
-                        //     flex: 3,
-                        //     child: Text(
-                        //       "No. 000000001",
-                        //       style: TextStyle(
-                        //           color: Colors.black,
-                        //           fontWeight: FontWeight.bold,
-                        //           fontSize: 30),
-                        //     )),
-                        Expanded(
-                            flex:5,
-                            child: Column(
-                              children: [
-                                Text(
-                                  'ID: ${place.historicSpotId}',
-                                  style: const TextStyle(color: Colors.black),
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                Text(
-                                  place.areaName,
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 16),
-                                ),
-                                const SizedBox(
-                                  height: 0,
-                                ),
-                                Text(
-                                  '${formatJapaneseDate(DateTime.now())}  参拝',
-                                  style: const TextStyle(
-                                      color: Colors.black, fontSize: 15),
-                                )
-                              ],
-                            )),
-                      ],
-                    )),
+                            Expanded(
+                              child: Text(
+                                '${formatJapaneseDate(DateTime.now())}  参拝',
+                                style: const TextStyle(
+                                    color: Colors.black, fontSize: 15),
+                              ),
+                            )
+                          ],
+                        )),
+                  ],
+                )),
               ],
             ),
           ),
