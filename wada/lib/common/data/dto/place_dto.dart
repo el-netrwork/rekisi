@@ -17,7 +17,9 @@ class PlaceDTO with _$PlaceDTO {
       required double latitude,
       required TypeRegisterStamp typeRegisterStamp,
       @Default(50) int gpsMeter,
-      @Default("") String url}) = _PlaceDTO;
+      @Default("") String url,
+        @Default("") String proverbs,
+      }) = _PlaceDTO;
 
   factory PlaceDTO.fromJson(Map<String, dynamic> json) =>
       _$PlaceDTOFromJson(json);

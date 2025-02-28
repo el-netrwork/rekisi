@@ -29,6 +29,7 @@ mixin _$PlaceDTO {
   TypeRegisterStamp get typeRegisterStamp => throw _privateConstructorUsedError;
   int get gpsMeter => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  String get proverbs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +51,8 @@ abstract class $PlaceDTOCopyWith<$Res> {
       double latitude,
       TypeRegisterStamp typeRegisterStamp,
       int gpsMeter,
-      String url});
+      String url,
+      String proverbs});
 }
 
 /// @nodoc
@@ -75,6 +77,7 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
     Object? typeRegisterStamp = null,
     Object? gpsMeter = null,
     Object? url = null,
+    Object? proverbs = null,
   }) {
     return _then(_value.copyWith(
       historicSpotId: null == historicSpotId
@@ -113,6 +116,10 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      proverbs: null == proverbs
+          ? _value.proverbs
+          : proverbs // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -134,7 +141,8 @@ abstract class _$$PlaceDTOImplCopyWith<$Res>
       double latitude,
       TypeRegisterStamp typeRegisterStamp,
       int gpsMeter,
-      String url});
+      String url,
+      String proverbs});
 }
 
 /// @nodoc
@@ -157,6 +165,7 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
     Object? typeRegisterStamp = null,
     Object? gpsMeter = null,
     Object? url = null,
+    Object? proverbs = null,
   }) {
     return _then(_$PlaceDTOImpl(
       historicSpotId: null == historicSpotId
@@ -195,6 +204,10 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      proverbs: null == proverbs
+          ? _value.proverbs
+          : proverbs // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -211,7 +224,8 @@ class _$PlaceDTOImpl implements _PlaceDTO {
       required this.latitude,
       required this.typeRegisterStamp,
       this.gpsMeter = 50,
-      this.url = ""});
+      this.url = "",
+      this.proverbs = ""});
 
   factory _$PlaceDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceDTOImplFromJson(json);
@@ -236,10 +250,13 @@ class _$PlaceDTOImpl implements _PlaceDTO {
   @override
   @JsonKey()
   final String url;
+  @override
+  @JsonKey()
+  final String proverbs;
 
   @override
   String toString() {
-    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url)';
+    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs)';
   }
 
   @override
@@ -262,13 +279,25 @@ class _$PlaceDTOImpl implements _PlaceDTO {
                 other.typeRegisterStamp == typeRegisterStamp) &&
             (identical(other.gpsMeter, gpsMeter) ||
                 other.gpsMeter == gpsMeter) &&
-            (identical(other.url, url) || other.url == url));
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.proverbs, proverbs) ||
+                other.proverbs == proverbs));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, historicSpotId, name, areaName,
-      yomigana, longitude, latitude, typeRegisterStamp, gpsMeter, url);
+  int get hashCode => Object.hash(
+      runtimeType,
+      historicSpotId,
+      name,
+      areaName,
+      yomigana,
+      longitude,
+      latitude,
+      typeRegisterStamp,
+      gpsMeter,
+      url,
+      proverbs);
 
   @JsonKey(ignore: true)
   @override
@@ -294,7 +323,8 @@ abstract class _PlaceDTO implements PlaceDTO {
       required final double latitude,
       required final TypeRegisterStamp typeRegisterStamp,
       final int gpsMeter,
-      final String url}) = _$PlaceDTOImpl;
+      final String url,
+      final String proverbs}) = _$PlaceDTOImpl;
 
   factory _PlaceDTO.fromJson(Map<String, dynamic> json) =
       _$PlaceDTOImpl.fromJson;
@@ -317,6 +347,8 @@ abstract class _PlaceDTO implements PlaceDTO {
   int get gpsMeter;
   @override
   String get url;
+  @override
+  String get proverbs;
   @override
   @JsonKey(ignore: true)
   _$$PlaceDTOImplCopyWith<_$PlaceDTOImpl> get copyWith =>

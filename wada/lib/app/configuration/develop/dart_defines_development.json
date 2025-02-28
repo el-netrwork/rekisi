@@ -1,7 +1,7 @@
 {
     "flavor": "develop",
     "appId": "jp.co.eln.stamp_rally_wada.development",
-    "iosAppId": "jp.co.eln.stampRallyJwada.development",
+    "iosAppId": "jp.co.eln.stampRallywada.development",
     "appNameIos": "和田神社と兼務社めぐり",
     "appNameAndroid": "和田神社と兼務社めぐり",
     "supabaseUrl": "https://zooleonemjdnxakyazek.supabase.co",

@@ -6,7 +6,7 @@ part of 'get_places_use_case.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getPlacesUseCaseHash() => r'b637d6c26f27305a3980a85aec18705d7c88de5e';
+String _$getPlacesUseCaseHash() => r'd054807a6b93d11833113c579b4c76951526c39c';
 
 /// See also [getPlacesUseCase].
 @ProviderFor(getPlacesUseCase)

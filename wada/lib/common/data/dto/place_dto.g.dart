@@ -18,6 +18,7 @@ _$PlaceDTOImpl _$$PlaceDTOImplFromJson(Map<String, dynamic> json) =>
           $enumDecode(_$TypeRegisterStampEnumMap, json['typeRegisterStamp']),
       gpsMeter: json['gpsMeter'] as int? ?? 50,
       url: json['url'] as String? ?? "",
+      proverbs: json['proverbs'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
           _$TypeRegisterStampEnumMap[instance.typeRegisterStamp]!,
       'gpsMeter': instance.gpsMeter,
       'url': instance.url,
+      'proverbs': instance.proverbs,
     };
 
 const _$TypeRegisterStampEnumMap = {

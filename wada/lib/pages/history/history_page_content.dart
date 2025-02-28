@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -6,12 +7,15 @@ import 'package:stamp_rally/app/themes/custom_theme.dart';
 import 'package:stamp_rally/assets/assets.gen.dart';
 import 'package:stamp_rally/common/components/custom_network_image.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
+import 'package:stamp_rally/common/services/location_service.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
 import 'package:stamp_rally/features/complete_card/provider/register_complete_card_use_case_provider.dart';
 import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
 import 'package:stamp_rally/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
 import 'package:stamp_rally/pages/history/widget/alert_qr_register_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/complete_card_dialog.dart';
+import 'package:stamp_rally/pages/history/widget/worship_card_dialog.dart';
+import '../../common/components/show_progress_dialog.dart';
 import 'controller/history_page_content_controller_keep_alive.dart';
 import 'widget/alert_gps_register_dialog.dart';
 
@@ -175,6 +179,7 @@ class _Item extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final place = ref.watch(placeModelScopedProvider);
     final isContain = place.isStamped;
+    final locationService = ref.watch(locationServiceProvider);
     return GestureDetector(
       onTap: () async {
         // GPS、QRコードの場合。
@@ -297,65 +302,125 @@ class _Item extends ConsumerWidget {
                   )),
             ),
             // Gap(10),
-            // 経路
             Expanded(
-              flex: 2,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  // しおり
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        OpenAnotherUrlService.openUrl(place.url);
-                      },
-                      child: Container(
-                        color: Colors.transparent,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("しおり",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: context.colors.primary,
-                                  decorationColor: context.colors.primary,
-                                )),
-                            Assets.png.siori.image(height: 25, width: 25)
-                          ],
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.only(right: 5, left: 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    // しおり
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          OpenAnotherUrlService.openUrl(place.url);
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Assets.png.siori.image(height: 18, width: 18),
+                              Text("しおり",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: context.colors.primary,
+                                    decorationColor: context.colors.primary,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  //経路
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: () {
-                        OpenAnotherUrlService.openGoogleMap(
-                            place.latitude.toString(),
-                            place.longitude.toString());
-                      },
-                      child: Container(
-                        color: Colors.transparent,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("経路",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: context.colors.primary,
-                                  decorationColor: context.colors.primary,
-                                )),
-                            const Icon(
-                              Icons.pin_drop,
-                              size: 16,
-                            )
-                          ],
+                    // 取得
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () async {
+                          showProgressDialog(context);
+                          final isWithin =
+                              await locationService.isWithinDistance(
+                                  meter: place.gpsMeter.toDouble(),
+                                  lat: place.latitude,
+                                  lon: place.longitude);
+                          // 距離圏内 & サンプルの場合は取得可能。
+                          if ((isWithin ||
+                              place.typeRegisterStamp ==
+                                  TypeRegisterStamp.sample) && context.mounted) {
+                            context.pop();
+                            showWorshipCardDialog(context, place);
+                          } else {
+                            if (context.mounted) {
+                              context.pop();
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(const SnackBar(
+                                      backgroundColor: Colors.orange,
+                                      content: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.warning,
+                                            color: Colors.white,
+                                          ),
+                                          SizedBox(width: 10),
+                                          Text(
+                                            '距離が離れすぎています。',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold),
+                                          )
+                                        ],
+                                      ),
+                                      behavior: SnackBarBehavior.floating));
+                            }
+                          }
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Assets.png.get.image(height: 18, width: 14),
+                              Text("取得",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: context.colors.primary,
+                                    decorationColor: context.colors.primary,
+                                  )),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                    //経路
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () {
+                          OpenAnotherUrlService.openGoogleMap(
+                              place.latitude.toString(),
+                              place.longitude.toString());
+                        },
+                        child: Container(
+                          color: Colors.transparent,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(
+                                Icons.pin_drop,
+                                size: 16,
+                              ),
+                              Text("経路",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: context.colors.primary,
+                                    decorationColor: context.colors.primary,
+                                  )),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
