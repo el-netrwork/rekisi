@@ -20,6 +20,8 @@ class PlaceModel with _$PlaceModel {
     required TypeRegisterStamp typeRegisterStamp,
     @Default(50) int gpsMeter,
     @Default('') String url,
+    @Default('参拝カード.png') String img,
+    @Default('') String proverbs,
     @Default(false) bool isStamped,
     @Default([]) List<DateTime> stampedDateTimeList,
   }) = _PlaceModel;
@@ -53,6 +55,9 @@ class PlaceModel with _$PlaceModel {
         latitude: data.latitude,
         typeRegisterStamp: data.typeRegisterStamp,
         url: data.url,
-        gpsMeter: data.gpsMeter);
+        gpsMeter: data.gpsMeter,
+      img: data.img,
+      proverbs: data.proverbs
+    );
   }
 }

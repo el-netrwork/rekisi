@@ -4,8 +4,8 @@ import 'package:stamp_rally/common/data/dto/complete_card_data_dto.dart';
 import 'package:stamp_rally/common/data/dto/place_dto.dart';
 import 'package:stamp_rally/common/data/model/complete_card_data_model.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/common/use_case/convert_csv_to_json_use_case.dart';
-import 'package:stamp_rally/common/use_case/get_csv_from_asset_use_case.dart';
+import 'package:stamp_rally/common/services/convert_csv_to_json_use_case.dart';
+import 'package:stamp_rally/common/services/get_csv_from_asset_use_case.dart';
 import 'package:stamp_rally/core/flogger.dart';
 
 part 'fetch_complete_card_data_use_case_provider.g.dart';

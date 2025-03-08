@@ -13,7 +13,7 @@ extension GlobalKeyEntention on GlobalKey {
     // if (boundary.debugNeedsPaint) {
     await Future.delayed(const Duration(milliseconds: 300));
     // }
-    final image = await boundary.toImage();
+    final image = await boundary.toImage(pixelRatio: 10);
     final byteData = await image.toByteData(format: ImageByteFormat.png);
     final pngBytes = byteData!.buffer.asUint8List();
     return pngBytes;

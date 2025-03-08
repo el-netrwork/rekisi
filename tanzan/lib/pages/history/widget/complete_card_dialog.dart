@@ -136,7 +136,7 @@ class _CompleteCard extends HookConsumerWidget {
                   ),
                 ),
                 Expanded(
-                  flex: 2,
+                  flex: 3,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Row(
@@ -196,40 +196,44 @@ class _CompleteButton extends HookConsumerWidget {
 
                 // 1秒後にダイアログを出す。
                 Future.delayed(const Duration(microseconds: 500), () {
-                  context.pop();
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text("達成カードをアルバムに保存しました！"),
-                          content:
-                              const Text("よろしければ、アプリのフィードバックをメールで送ってください。"),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                context.pop();
-                              },
-                              style: TextButton.styleFrom(
-                                  foregroundColor: context.colors.primary),
-                              child: Text(
-                                "戻る",
-                                style: TextStyle(color: context.colors.primary),
+                  if (context.mounted) {
+                    context.pop();
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("達成カードをアルバムに保存しました！"),
+                            content:
+                                const Text("よろしければ、アプリのフィードバックをメールで送ってください。"),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  context.pop();
+                                },
+                                style: TextButton.styleFrom(
+                                    foregroundColor: context.colors.primary),
+                                child: Text(
+                                  "戻る",
+                                  style:
+                                      TextStyle(color: context.colors.primary),
+                                ),
                               ),
-                            ),
-                            TextButton(
-                              onPressed: () async {
-                                await OpenAnotherUrlService.openEmail();
-                              },
-                              style: TextButton.styleFrom(
-                                  foregroundColor: context.colors.primary),
-                              child: Text(
-                                "送る",
-                                style: TextStyle(color: context.colors.primary),
+                              TextButton(
+                                onPressed: () async {
+                                  await OpenAnotherUrlService.openEmail();
+                                },
+                                style: TextButton.styleFrom(
+                                    foregroundColor: context.colors.primary),
+                                child: Text(
+                                  "送る",
+                                  style:
+                                      TextStyle(color: context.colors.primary),
+                                ),
                               ),
-                            ),
-                          ],
-                        );
-                      });
+                            ],
+                          );
+                        });
+                  }
                 });
               }, context, "保存に成功しました。", "保存に失敗しました。再度やり直してください。", false);
             },

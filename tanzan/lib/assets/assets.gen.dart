@@ -31,11 +31,26 @@ class $AssetsPngGen {
   AssetGenImage get dummyItemBg =>
       const AssetGenImage('assets/png/dummy_item_bg.png');
 
+  /// File path: assets/png/get.png
+  AssetGenImage get get => const AssetGenImage('assets/png/get.png');
+
+  /// File path: assets/png/google_map.png
+  AssetGenImage get googleMap =>
+      const AssetGenImage('assets/png/google_map.png');
+
   /// File path: assets/png/siori.png
   AssetGenImage get siori => const AssetGenImage('assets/png/siori.png');
 
   /// File path: assets/png/stamp.png
   AssetGenImage get stamp => const AssetGenImage('assets/png/stamp.png');
+
+  /// File path: assets/png/worship_card.png
+  AssetGenImage get worshipCard =>
+      const AssetGenImage('assets/png/worship_card.png');
+
+  /// File path: assets/png/worship_card_image.png
+  AssetGenImage get worshipCardImage =>
+      const AssetGenImage('assets/png/worship_card_image.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
@@ -44,8 +59,12 @@ class $AssetsPngGen {
         completeCardUp,
         conguraturation,
         dummyItemBg,
+        get,
+        googleMap,
         siori,
-        stamp
+        stamp,
+        worshipCard,
+        worshipCardImage
       ];
 }
 
