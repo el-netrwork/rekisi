@@ -28,6 +28,7 @@ mixin _$PlaceModel {
   String get worshipUrl => throw _privateConstructorUsedError;
   String get img => throw _privateConstructorUsedError;
   String get proverbs => throw _privateConstructorUsedError;
+  String get worshipCardTopUrl => throw _privateConstructorUsedError;
   bool get isStamped => throw _privateConstructorUsedError;
   List<DateTime> get stampedDateTimeList => throw _privateConstructorUsedError;
 
@@ -55,6 +56,7 @@ abstract class $PlaceModelCopyWith<$Res> {
       String worshipUrl,
       String img,
       String proverbs,
+      String worshipCardTopUrl,
       bool isStamped,
       List<DateTime> stampedDateTimeList});
 }
@@ -84,6 +86,7 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
     Object? worshipUrl = null,
     Object? img = null,
     Object? proverbs = null,
+    Object? worshipCardTopUrl = null,
     Object? isStamped = null,
     Object? stampedDateTimeList = null,
   }) {
@@ -136,6 +139,10 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
           ? _value.proverbs
           : proverbs // ignore: cast_nullable_to_non_nullable
               as String,
+      worshipCardTopUrl: null == worshipCardTopUrl
+          ? _value.worshipCardTopUrl
+          : worshipCardTopUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       isStamped: null == isStamped
           ? _value.isStamped
           : isStamped // ignore: cast_nullable_to_non_nullable
@@ -169,6 +176,7 @@ abstract class _$$PlaceModelImplCopyWith<$Res>
       String worshipUrl,
       String img,
       String proverbs,
+      String worshipCardTopUrl,
       bool isStamped,
       List<DateTime> stampedDateTimeList});
 }
@@ -196,6 +204,7 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
     Object? worshipUrl = null,
     Object? img = null,
     Object? proverbs = null,
+    Object? worshipCardTopUrl = null,
     Object? isStamped = null,
     Object? stampedDateTimeList = null,
   }) {
@@ -248,6 +257,10 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
           ? _value.proverbs
           : proverbs // ignore: cast_nullable_to_non_nullable
               as String,
+      worshipCardTopUrl: null == worshipCardTopUrl
+          ? _value.worshipCardTopUrl
+          : worshipCardTopUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       isStamped: null == isStamped
           ? _value.isStamped
           : isStamped // ignore: cast_nullable_to_non_nullable
@@ -276,6 +289,7 @@ class _$PlaceModelImpl extends _PlaceModel {
       this.worshipUrl = '',
       this.img = '参拝カード.png',
       this.proverbs = '',
+      this.worshipCardTopUrl = '',
       this.isStamped = false,
       final List<DateTime> stampedDateTimeList = const []})
       : _stampedDateTimeList = stampedDateTimeList,
@@ -312,6 +326,9 @@ class _$PlaceModelImpl extends _PlaceModel {
   final String proverbs;
   @override
   @JsonKey()
+  final String worshipCardTopUrl;
+  @override
+  @JsonKey()
   final bool isStamped;
   final List<DateTime> _stampedDateTimeList;
   @override
@@ -325,7 +342,7 @@ class _$PlaceModelImpl extends _PlaceModel {
 
   @override
   String toString() {
-    return 'PlaceModel(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, worshipUrl: $worshipUrl, img: $img, proverbs: $proverbs, isStamped: $isStamped, stampedDateTimeList: $stampedDateTimeList)';
+    return 'PlaceModel(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, worshipUrl: $worshipUrl, img: $img, proverbs: $proverbs, worshipCardTopUrl: $worshipCardTopUrl, isStamped: $isStamped, stampedDateTimeList: $stampedDateTimeList)';
   }
 
   @override
@@ -354,6 +371,8 @@ class _$PlaceModelImpl extends _PlaceModel {
             (identical(other.img, img) || other.img == img) &&
             (identical(other.proverbs, proverbs) ||
                 other.proverbs == proverbs) &&
+            (identical(other.worshipCardTopUrl, worshipCardTopUrl) ||
+                other.worshipCardTopUrl == worshipCardTopUrl) &&
             (identical(other.isStamped, isStamped) ||
                 other.isStamped == isStamped) &&
             const DeepCollectionEquality()
@@ -375,6 +394,7 @@ class _$PlaceModelImpl extends _PlaceModel {
       worshipUrl,
       img,
       proverbs,
+      worshipCardTopUrl,
       isStamped,
       const DeepCollectionEquality().hash(_stampedDateTimeList));
 
@@ -399,6 +419,7 @@ abstract class _PlaceModel extends PlaceModel {
       final String worshipUrl,
       final String img,
       final String proverbs,
+      final String worshipCardTopUrl,
       final bool isStamped,
       final List<DateTime> stampedDateTimeList}) = _$PlaceModelImpl;
   const _PlaceModel._() : super._();
@@ -427,6 +448,8 @@ abstract class _PlaceModel extends PlaceModel {
   String get img;
   @override
   String get proverbs;
+  @override
+  String get worshipCardTopUrl;
   @override
   bool get isStamped;
   @override

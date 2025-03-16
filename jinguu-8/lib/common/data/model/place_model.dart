@@ -23,6 +23,7 @@ class PlaceModel with _$PlaceModel {
     @Default('') String worshipUrl,
     @Default('参拝カード.png') String img,
     @Default('') String proverbs,
+    @Default('') String worshipCardTopUrl,
     @Default(false) bool isStamped,
     @Default([]) List<DateTime> stampedDateTimeList,
   }) = _PlaceModel;
@@ -65,6 +66,7 @@ class PlaceModel with _$PlaceModel {
         worshipUrl: data.worshipUrl,
         gpsMeter: data.gpsMeter,
         img: data.img,
-        proverbs: data.proverbs);
+        proverbs: data.proverbs,
+        worshipCardTopUrl: data.worship_card_top_image_url);
   }
 }

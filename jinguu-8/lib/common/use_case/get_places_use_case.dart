@@ -12,7 +12,7 @@ part 'get_places_use_case.g.dart';
 Future<List<PlaceModel>> getPlacesUseCase(GetPlacesUseCaseRef ref) async {
   try {
     final csv = await ref.read(getCsvFromAssetUseCaseProvider(
-            url: '${Configuration.instance.assetHostUrl}/data/meitetu-1.csv')
+            url: '${Configuration.instance.assetHostUrl}/data/jinguu8.csv')
         .future);
     if (csv == null) {
       throw Exception('csv is null');
