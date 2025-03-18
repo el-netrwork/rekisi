@@ -426,9 +426,9 @@ class _Item extends ConsumerWidget {
 Future<String?> validate(PlaceModel place, WidgetRef ref) async {
   final currentTime = DateTime.now();
   final locationService = ref.watch(locationServiceProvider);
-  final isWithinDate = currentTime.isBefore(place.dateStart!) &&
+  final isNotWithinDate = currentTime.isBefore(place.dateStart!) ||
       currentTime.isAfter(place.dateEnd!);
-  if (!isWithinDate) return "期間内ではありません。";
+  if (isNotWithinDate) return "期間内ではありません。";
   final isWithin = await locationService.isWithinDistance(
       meter: place.gpsMeter.toDouble(),
       lat: place.latitude,
