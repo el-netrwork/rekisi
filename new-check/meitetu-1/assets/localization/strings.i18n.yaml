@@ -1,0 +1,11 @@
+error: エラー
+close: 閉じる
+navigationBar:
+  top: トップ
+  map: マップ
+  camera: カメラ
+  history: 巡訪
+notice:
+  permissionOfLocationIsNotAllow: "QRコードを読み取るには位置情報の権限が必要です。\n設定から位置情報使用の許可をお願いします。"
+alert:
+  outOfBounds: QRコード設置場所と距離が離れすぎています。 
