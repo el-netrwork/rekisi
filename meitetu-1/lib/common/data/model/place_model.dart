@@ -20,11 +20,18 @@ class PlaceModel with _$PlaceModel {
     required TypeRegisterStamp typeRegisterStamp,
     @Default(50) int gpsMeter,
     @Default('') String url,
+    @Default('') String worshipUrl,
     @Default('参拝カード.png') String img,
     @Default('') String proverbs,
     @Default(false) bool isStamped,
     @Default([]) List<DateTime> stampedDateTimeList,
   }) = _PlaceModel;
+
+  // 参拝カード取得をweb上にする
+  bool get isWorshipCardWeb {
+    if (worshipUrl != '') return true;
+    return false;
+  }
 
   // スタンプ登録日を、yyyy/MM/dd(Sat) HH:mmのフォーマットでデータを返す。
   List<String> get stampedDateTimeListString {
@@ -55,9 +62,9 @@ class PlaceModel with _$PlaceModel {
         latitude: data.latitude,
         typeRegisterStamp: data.typeRegisterStamp,
         url: data.url,
+        worshipUrl: data.worshipUrl,
         gpsMeter: data.gpsMeter,
-      img: data.img,
-      proverbs: data.proverbs
-    );
+        img: data.img,
+        proverbs: data.proverbs);
   }
 }

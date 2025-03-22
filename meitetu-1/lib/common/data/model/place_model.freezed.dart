@@ -25,6 +25,7 @@ mixin _$PlaceModel {
   TypeRegisterStamp get typeRegisterStamp => throw _privateConstructorUsedError;
   int get gpsMeter => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
+  String get worshipUrl => throw _privateConstructorUsedError;
   String get img => throw _privateConstructorUsedError;
   String get proverbs => throw _privateConstructorUsedError;
   bool get isStamped => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $PlaceModelCopyWith<$Res> {
       TypeRegisterStamp typeRegisterStamp,
       int gpsMeter,
       String url,
+      String worshipUrl,
       String img,
       String proverbs,
       bool isStamped,
@@ -79,6 +81,7 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
     Object? typeRegisterStamp = null,
     Object? gpsMeter = null,
     Object? url = null,
+    Object? worshipUrl = null,
     Object? img = null,
     Object? proverbs = null,
     Object? isStamped = null,
@@ -121,6 +124,10 @@ class _$PlaceModelCopyWithImpl<$Res, $Val extends PlaceModel>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      worshipUrl: null == worshipUrl
+          ? _value.worshipUrl
+          : worshipUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       img: null == img
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
@@ -159,6 +166,7 @@ abstract class _$$PlaceModelImplCopyWith<$Res>
       TypeRegisterStamp typeRegisterStamp,
       int gpsMeter,
       String url,
+      String worshipUrl,
       String img,
       String proverbs,
       bool isStamped,
@@ -185,6 +193,7 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
     Object? typeRegisterStamp = null,
     Object? gpsMeter = null,
     Object? url = null,
+    Object? worshipUrl = null,
     Object? img = null,
     Object? proverbs = null,
     Object? isStamped = null,
@@ -227,6 +236,10 @@ class __$$PlaceModelImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
+      worshipUrl: null == worshipUrl
+          ? _value.worshipUrl
+          : worshipUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       img: null == img
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
@@ -260,6 +273,7 @@ class _$PlaceModelImpl extends _PlaceModel {
       required this.typeRegisterStamp,
       this.gpsMeter = 50,
       this.url = '',
+      this.worshipUrl = '',
       this.img = '参拝カード.png',
       this.proverbs = '',
       this.isStamped = false,
@@ -289,6 +303,9 @@ class _$PlaceModelImpl extends _PlaceModel {
   final String url;
   @override
   @JsonKey()
+  final String worshipUrl;
+  @override
+  @JsonKey()
   final String img;
   @override
   @JsonKey()
@@ -308,7 +325,7 @@ class _$PlaceModelImpl extends _PlaceModel {
 
   @override
   String toString() {
-    return 'PlaceModel(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, img: $img, proverbs: $proverbs, isStamped: $isStamped, stampedDateTimeList: $stampedDateTimeList)';
+    return 'PlaceModel(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, gpsMeter: $gpsMeter, url: $url, worshipUrl: $worshipUrl, img: $img, proverbs: $proverbs, isStamped: $isStamped, stampedDateTimeList: $stampedDateTimeList)';
   }
 
   @override
@@ -332,6 +349,8 @@ class _$PlaceModelImpl extends _PlaceModel {
             (identical(other.gpsMeter, gpsMeter) ||
                 other.gpsMeter == gpsMeter) &&
             (identical(other.url, url) || other.url == url) &&
+            (identical(other.worshipUrl, worshipUrl) ||
+                other.worshipUrl == worshipUrl) &&
             (identical(other.img, img) || other.img == img) &&
             (identical(other.proverbs, proverbs) ||
                 other.proverbs == proverbs) &&
@@ -353,6 +372,7 @@ class _$PlaceModelImpl extends _PlaceModel {
       typeRegisterStamp,
       gpsMeter,
       url,
+      worshipUrl,
       img,
       proverbs,
       isStamped,
@@ -376,6 +396,7 @@ abstract class _PlaceModel extends PlaceModel {
       required final TypeRegisterStamp typeRegisterStamp,
       final int gpsMeter,
       final String url,
+      final String worshipUrl,
       final String img,
       final String proverbs,
       final bool isStamped,
@@ -400,6 +421,8 @@ abstract class _PlaceModel extends PlaceModel {
   int get gpsMeter;
   @override
   String get url;
+  @override
+  String get worshipUrl;
   @override
   String get img;
   @override

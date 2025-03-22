@@ -46,6 +46,11 @@ storeFile=key.jks
 flutter build appbundle --release --dart-define-from-file=lib/app/configuration/production/dart_defines_production.json
 ```
 
+4. iosのビルド
+```
+flutter build ios --release --dart-define-from-file=lib/app/configuration/production/dart_defines_production.json
+```
+
 5. build/app/outputs/bundle/release/app-release.aabの、「app-release.aab」が作成され、このファイルが著名付きアプリ。
 
 6. Google Play Consoleに5で作成されたファイルをアップする。

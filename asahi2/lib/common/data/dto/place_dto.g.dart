@@ -16,10 +16,15 @@ _$PlaceDTOImpl _$$PlaceDTOImplFromJson(Map<String, dynamic> json) =>
       latitude: (json['latitude'] as num).toDouble(),
       typeRegisterStamp:
           $enumDecode(_$TypeRegisterStampEnumMap, json['typeRegisterStamp']),
+      worshipUrl: json['worshipUrl'] as String? ?? '',
       img: json['img'] as String? ?? "参拝カード",
       gpsMeter: json['gpsMeter'] as int? ?? 50,
       url: json['url'] as String? ?? "",
       proverbs: json['proverbs'] as String? ?? "",
+      worship_card_top_image_url:
+          json['worship_card_top_image_url'] as String? ?? "",
+      dateStart: json['dateStart'] as String? ?? "",
+      dateEnd: json['dateEnd'] as String? ?? "",
     );
 
 Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
@@ -32,14 +37,19 @@ Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
       'latitude': instance.latitude,
       'typeRegisterStamp':
           _$TypeRegisterStampEnumMap[instance.typeRegisterStamp]!,
+      'worshipUrl': instance.worshipUrl,
       'img': instance.img,
       'gpsMeter': instance.gpsMeter,
       'url': instance.url,
       'proverbs': instance.proverbs,
+      'worship_card_top_image_url': instance.worship_card_top_image_url,
+      'dateStart': instance.dateStart,
+      'dateEnd': instance.dateEnd,
     };
 
 const _$TypeRegisterStampEnumMap = {
   TypeRegisterStamp.gps: 'gps',
   TypeRegisterStamp.qr: 'qr',
   TypeRegisterStamp.sample: 'sample',
+  TypeRegisterStamp.gpsDate: 'gpsDate',
 };

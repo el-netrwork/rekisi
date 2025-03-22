@@ -16,6 +16,7 @@ class PlaceDTO with _$PlaceDTO {
     required double longitude,
     required double latitude,
     required TypeRegisterStamp typeRegisterStamp,
+    @Default('') String worshipUrl,
     @Default("参拝カード") String img,
     @Default(50) int gpsMeter,
     @Default("") String url,

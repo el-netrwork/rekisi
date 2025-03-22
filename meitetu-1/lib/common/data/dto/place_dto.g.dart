@@ -16,6 +16,7 @@ _$PlaceDTOImpl _$$PlaceDTOImplFromJson(Map<String, dynamic> json) =>
       latitude: (json['latitude'] as num).toDouble(),
       typeRegisterStamp:
           $enumDecode(_$TypeRegisterStampEnumMap, json['typeRegisterStamp']),
+      worshipUrl: json['worshipUrl'] as String? ?? '',
       img: json['img'] as String? ?? "参拝カード",
       gpsMeter: json['gpsMeter'] as int? ?? 50,
       url: json['url'] as String? ?? "",
@@ -32,6 +33,7 @@ Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
       'latitude': instance.latitude,
       'typeRegisterStamp':
           _$TypeRegisterStampEnumMap[instance.typeRegisterStamp]!,
+      'worshipUrl': instance.worshipUrl,
       'img': instance.img,
       'gpsMeter': instance.gpsMeter,
       'url': instance.url,

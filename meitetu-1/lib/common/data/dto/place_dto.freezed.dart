@@ -27,6 +27,7 @@ mixin _$PlaceDTO {
   double get longitude => throw _privateConstructorUsedError;
   double get latitude => throw _privateConstructorUsedError;
   TypeRegisterStamp get typeRegisterStamp => throw _privateConstructorUsedError;
+  String get worshipUrl => throw _privateConstructorUsedError;
   String get img => throw _privateConstructorUsedError;
   int get gpsMeter => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $PlaceDTOCopyWith<$Res> {
       double longitude,
       double latitude,
       TypeRegisterStamp typeRegisterStamp,
+      String worshipUrl,
       String img,
       int gpsMeter,
       String url,
@@ -77,6 +79,7 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
     Object? longitude = null,
     Object? latitude = null,
     Object? typeRegisterStamp = null,
+    Object? worshipUrl = null,
     Object? img = null,
     Object? gpsMeter = null,
     Object? url = null,
@@ -111,6 +114,10 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
           ? _value.typeRegisterStamp
           : typeRegisterStamp // ignore: cast_nullable_to_non_nullable
               as TypeRegisterStamp,
+      worshipUrl: null == worshipUrl
+          ? _value.worshipUrl
+          : worshipUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       img: null == img
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
@@ -147,6 +154,7 @@ abstract class _$$PlaceDTOImplCopyWith<$Res>
       double longitude,
       double latitude,
       TypeRegisterStamp typeRegisterStamp,
+      String worshipUrl,
       String img,
       int gpsMeter,
       String url,
@@ -171,6 +179,7 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
     Object? longitude = null,
     Object? latitude = null,
     Object? typeRegisterStamp = null,
+    Object? worshipUrl = null,
     Object? img = null,
     Object? gpsMeter = null,
     Object? url = null,
@@ -205,6 +214,10 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
           ? _value.typeRegisterStamp
           : typeRegisterStamp // ignore: cast_nullable_to_non_nullable
               as TypeRegisterStamp,
+      worshipUrl: null == worshipUrl
+          ? _value.worshipUrl
+          : worshipUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       img: null == img
           ? _value.img
           : img // ignore: cast_nullable_to_non_nullable
@@ -236,6 +249,7 @@ class _$PlaceDTOImpl implements _PlaceDTO {
       required this.longitude,
       required this.latitude,
       required this.typeRegisterStamp,
+      this.worshipUrl = '',
       this.img = "参拝カード",
       this.gpsMeter = 50,
       this.url = "",
@@ -260,6 +274,9 @@ class _$PlaceDTOImpl implements _PlaceDTO {
   final TypeRegisterStamp typeRegisterStamp;
   @override
   @JsonKey()
+  final String worshipUrl;
+  @override
+  @JsonKey()
   final String img;
   @override
   @JsonKey()
@@ -273,7 +290,7 @@ class _$PlaceDTOImpl implements _PlaceDTO {
 
   @override
   String toString() {
-    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, img: $img, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs)';
+    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, worshipUrl: $worshipUrl, img: $img, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs)';
   }
 
   @override
@@ -294,6 +311,8 @@ class _$PlaceDTOImpl implements _PlaceDTO {
                 other.latitude == latitude) &&
             (identical(other.typeRegisterStamp, typeRegisterStamp) ||
                 other.typeRegisterStamp == typeRegisterStamp) &&
+            (identical(other.worshipUrl, worshipUrl) ||
+                other.worshipUrl == worshipUrl) &&
             (identical(other.img, img) || other.img == img) &&
             (identical(other.gpsMeter, gpsMeter) ||
                 other.gpsMeter == gpsMeter) &&
@@ -313,6 +332,7 @@ class _$PlaceDTOImpl implements _PlaceDTO {
       longitude,
       latitude,
       typeRegisterStamp,
+      worshipUrl,
       img,
       gpsMeter,
       url,
@@ -341,6 +361,7 @@ abstract class _PlaceDTO implements PlaceDTO {
       required final double longitude,
       required final double latitude,
       required final TypeRegisterStamp typeRegisterStamp,
+      final String worshipUrl,
       final String img,
       final int gpsMeter,
       final String url,
@@ -363,6 +384,8 @@ abstract class _PlaceDTO implements PlaceDTO {
   double get latitude;
   @override
   TypeRegisterStamp get typeRegisterStamp;
+  @override
+  String get worshipUrl;
   @override
   String get img;
   @override

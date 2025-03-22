@@ -1,5 +1,4 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:stamp_rally/app/configuration/configuration.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/data/dto/stamp_dto.dart';
 import 'package:stamp_rally/common/services/location_service.dart';
@@ -23,10 +22,6 @@ class Initial extends RegisterStampState {
 
 class Loading extends RegisterStampState {
   const Loading() : super();
-}
-
-class OverDistance extends RegisterStampState {
-  const OverDistance() : super();
 }
 
 class Error extends RegisterStampState {
@@ -63,11 +58,7 @@ class RegisterStampUseCase extends _$RegisterStampUseCase {
       if (placeModelList.isEmpty) return;
 
       final placeModel = placeModelList[0];
-      final validateState = await validate(placeModel);
-      if (validateState != const Loading()) {
-        state = validateState;
-        return;
-      }
+      await validate(placeModel);
 
       // 登録モデル作成
       final registerStamp = StampDto.createForRegister(
@@ -94,13 +85,25 @@ class RegisterStampUseCase extends _$RegisterStampUseCase {
       ref.invalidate(fetchStampedPlaceUseCaseProvider);
     } on Exception catch (e) {
       Flogger.e(e);
-      errorLog();
-      state = Error(e.toString());
+      String errorMessage = e.toString().replaceFirst("Exception: ", "");
+      errorLog(errorMessage);
+      state = Error(errorMessage);
     }
   }
 
-  // バリデーション
-  Future<RegisterStampState> validate(PlaceModel placeModel) async {
+  // スタンプ登録バリデーション
+  Future<void> validate(PlaceModel placeModel) async {
+    // 日付のバリデーション
+    if (placeModel.typeRegisterStamp == TypeRegisterStamp.gpsDate) {
+      final currentTime = DateTime.now();
+      if (currentTime.isBefore(placeModel.dateStart!) ||
+          currentTime.isAfter(placeModel.dateEnd!)) {
+        throw Exception(
+            "${placeModel.dateStartString} ~ ${placeModel.dateEndString}の期間内のみスタンプ押下可能です。");
+        // return const Error("期間内ではありません。");
+      }
+    }
+    // 距離のバリデーション
     if (placeModel.typeRegisterStamp != TypeRegisterStamp.sample) {
       // 圏内にいるか確認
       final isWithInDistance = await ref
@@ -110,12 +113,10 @@ class RegisterStampUseCase extends _$RegisterStampUseCase {
               lat: placeModel.latitude,
               lon: placeModel.longitude);
       if (!isWithInDistance) {
-        return const OverDistance();
+        throw Exception(
+            "距離が離れすぎています。${placeModel.gpsMeter}m圏内に近づかなければ、スタンプを押すことはできません。");
       }
-
-      // その他バリデーション
     }
-    return const Loading();
   }
 
   // ログ成功
@@ -128,11 +129,11 @@ class RegisterStampUseCase extends _$RegisterStampUseCase {
   }
 
   // ログ失敗
-  Future<void> errorLog() async {
+  Future<void> errorLog(String message) async {
     final logData = LogDTO.create(
         level: 'error',
         methodName: 'RegisterStampUseCase.invoke',
-        infoBody: 'スタンプ取得失敗');
+        infoBody: message);
     _logManagerRepository.saveLog(logData);
   }
 }

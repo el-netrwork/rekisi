@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -9,14 +8,14 @@ import 'package:stamp_rally/common/components/custom_network_image.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/services/location_service.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/register_complete_card_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/register_complete_card_use_case_provider.dart';
 import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
 import 'package:stamp_rally/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/show_top_message_provider.dart';
 import 'package:stamp_rally/pages/history/widget/alert_qr_register_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/complete_card_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/worship_card_dialog.dart';
 import '../../common/components/show_progress_dialog.dart';
-import 'controller/history_page_content_controller_keep_alive.dart';
 import 'widget/alert_gps_register_dialog.dart';
 
 class HistoryPageContent extends HookConsumerWidget {
@@ -55,9 +54,7 @@ class HistoryPageContent extends HookConsumerWidget {
     });
 
     final stampAsync = ref.watch(fetchStampedPlaceUseCaseProvider);
-    final isShowDownloadMessage = ref.watch(
-        historyPageContentControllerKeepAliveProvider
-            .select((value) => value.isShowDownloadMessage));
+    final isShowDownloadMessage = ref.watch(showTopMessageProviderProvider);
     return switch (stampAsync) {
       AsyncData(:final value) => MediaQuery(
           data:
@@ -91,9 +88,8 @@ class HistoryPageContent extends HookConsumerWidget {
                                 child: IconButton(
                                   onPressed: () {
                                     ref
-                                        .read(
-                                            historyPageContentControllerKeepAliveProvider
-                                                .notifier)
+                                        .read(showTopMessageProviderProvider
+                                            .notifier)
                                         .hideMessage();
                                   },
                                   color: Colors.black,
@@ -224,7 +220,7 @@ class _Item extends ConsumerWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: isContain
-                            ? const Color(0xFFFFFC00)
+                            ? const Color(0xFFFDFDA9)
                             : const Color(0xFFC5C5C5),
                       ),
                       child: Stack(
@@ -338,33 +334,30 @@ class _Item extends ConsumerWidget {
                       child: GestureDetector(
                         onTap: () async {
                           showProgressDialog(context);
-                          final isWithin =
-                              await locationService.isWithinDistance(
-                                  meter: place.gpsMeter.toDouble(),
-                                  lat: place.latitude,
-                                  lon: place.longitude);
+                          final message = await validate(place, ref);
                           // 距離圏内 & サンプルの場合は取得可能。
-                          if ((isWithin ||
-                              place.typeRegisterStamp ==
-                                  TypeRegisterStamp.sample) && context.mounted) {
+                          if ((message == null ||
+                                  place.typeRegisterStamp ==
+                                      TypeRegisterStamp.sample) &&
+                              context.mounted) {
                             context.pop();
                             showWorshipCardDialog(context, place);
                           } else {
                             if (context.mounted) {
                               context.pop();
                               ScaffoldMessenger.of(context)
-                                  .showSnackBar(const SnackBar(
+                                  .showSnackBar(SnackBar(
                                       backgroundColor: Colors.orange,
                                       content: Row(
                                         children: [
-                                          Icon(
+                                          const Icon(
                                             Icons.warning,
                                             color: Colors.white,
                                           ),
-                                          SizedBox(width: 10),
+                                          const SizedBox(width: 10),
                                           Text(
-                                            '距離が離れすぎています。',
-                                            style: TextStyle(
+                                            message ?? '予期せぬエラーです。',
+                                            style: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold),
                                           )
@@ -428,4 +421,17 @@ class _Item extends ConsumerWidget {
       ),
     );
   }
+}
+
+Future<String?> validate(PlaceModel place, WidgetRef ref) async {
+  final currentTime = DateTime.now();
+  final locationService = ref.watch(locationServiceProvider);
+  final isNotWithinDate = currentTime.isBefore(place.dateStart!) ||
+      currentTime.isAfter(place.dateEnd!);
+  if (isNotWithinDate) return "期間内ではありません。";
+  final isWithin = await locationService.isWithinDistance(
+      meter: place.gpsMeter.toDouble(),
+      lat: place.latitude,
+      lon: place.longitude);
+  if (!isWithin) return "距離が離れすぎています。";
 }

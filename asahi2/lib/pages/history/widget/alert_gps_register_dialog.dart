@@ -18,22 +18,13 @@ class AlertGpsRegisterDialog extends ConsumerWidget {
     final selectedPlace = ref.watch(placeModelScopedProvider);
     final colors = context.colors;
     return switch (asyncState) {
-      // 範囲内にいない場合のエラーダイアログ
-      OverDistance() => AlertDialog(
+      // その他のエラー
+      Error(:final message) => AlertDialog(
           title: const Text(
             "失敗しました。",
           ),
           content: Text(
-            "距離が離れすぎています。${selectedPlace.gpsMeter}m圏内に近づかなければ、スタンプを押すことはできません。",
-          ),
-        ),
-      // その他のエラー
-      Error(:final message) => const AlertDialog(
-          title: Text(
-            "失敗しました。",
-          ),
-          content: Text(
-            "予期せぬエラーが発生しました。時間を置いて再度お試しください。",
+            message,
           ),
         ),
       // 成功時

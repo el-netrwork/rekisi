@@ -24,7 +24,7 @@ class CodeScannerPageContent extends ConsumerWidget {
               .read(homeStateNotifierProvider.notifier)
               .setPage(HomePageChild.history);
       // 範囲外の場合
-        case OverDistance():
+        case Error():
           CodeScannerAlertDialog(context).show();
         default:
       }
