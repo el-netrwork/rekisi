@@ -8,6 +8,7 @@ import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
+import '../../../app/configuration/configuration.dart';
 import '../../../common/components/custom_network_image.dart';
 import '../utility/format_japanese_date.dart';
 import '../utility/get_font_size_by_length.dart';
@@ -62,6 +63,7 @@ class _WorshipCard extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final placeNameSize = place.name.contains('\n') ? 22.0 : 27.0;
     return RepaintBoundary(
       key: globalKey,
       child: GestureDetector(
@@ -80,9 +82,14 @@ class _WorshipCard extends HookConsumerWidget {
                   child: SizedBox(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Assets.png.worshipCard.image(
-                      fit: BoxFit.fill,
-                    ),
+                    child: Image.network(
+                        place.worshipCardTopUrl.isEmpty
+                            ? '${Configuration.instance.assetHostUrl}/image/参拝カード.png'
+                            : 'place.worshipCardTopUrl',
+                        fit: BoxFit.fill),
+                    // child: Assets.png.worshipCard.image(
+                    //   fit: BoxFit.fill,
+                    // ),
                   ),
                 ),
                 Expanded(
@@ -98,7 +105,7 @@ class _WorshipCard extends HookConsumerWidget {
                           style: GoogleFonts.sawarabiMincho(
                               textStyle:
                                   const TextStyle(fontWeight: FontWeight.bold),
-                              fontSize: 27.0,
+                              fontSize: placeNameSize,
                               color: Colors.purple),
                         ),
                       ),

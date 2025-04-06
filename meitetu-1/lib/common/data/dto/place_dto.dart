@@ -21,6 +21,7 @@ class PlaceDTO with _$PlaceDTO {
     @Default(50) int gpsMeter,
     @Default("") String url,
     @Default("") String proverbs,
+    @Default("") String worship_card_top_image_url,
   }) = _PlaceDTO;
 
   factory PlaceDTO.fromJson(Map<String, dynamic> json) =>
