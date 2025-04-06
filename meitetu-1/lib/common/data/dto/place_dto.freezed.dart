@@ -32,6 +32,7 @@ mixin _$PlaceDTO {
   int get gpsMeter => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get proverbs => throw _privateConstructorUsedError;
+  String get worship_card_top_image_url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +57,8 @@ abstract class $PlaceDTOCopyWith<$Res> {
       String img,
       int gpsMeter,
       String url,
-      String proverbs});
+      String proverbs,
+      String worship_card_top_image_url});
 }
 
 /// @nodoc
@@ -84,6 +86,7 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
     Object? gpsMeter = null,
     Object? url = null,
     Object? proverbs = null,
+    Object? worship_card_top_image_url = null,
   }) {
     return _then(_value.copyWith(
       historicSpotId: null == historicSpotId
@@ -134,6 +137,10 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
           ? _value.proverbs
           : proverbs // ignore: cast_nullable_to_non_nullable
               as String,
+      worship_card_top_image_url: null == worship_card_top_image_url
+          ? _value.worship_card_top_image_url
+          : worship_card_top_image_url // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -158,7 +165,8 @@ abstract class _$$PlaceDTOImplCopyWith<$Res>
       String img,
       int gpsMeter,
       String url,
-      String proverbs});
+      String proverbs,
+      String worship_card_top_image_url});
 }
 
 /// @nodoc
@@ -184,6 +192,7 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
     Object? gpsMeter = null,
     Object? url = null,
     Object? proverbs = null,
+    Object? worship_card_top_image_url = null,
   }) {
     return _then(_$PlaceDTOImpl(
       historicSpotId: null == historicSpotId
@@ -234,6 +243,10 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
           ? _value.proverbs
           : proverbs // ignore: cast_nullable_to_non_nullable
               as String,
+      worship_card_top_image_url: null == worship_card_top_image_url
+          ? _value.worship_card_top_image_url
+          : worship_card_top_image_url // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -253,7 +266,8 @@ class _$PlaceDTOImpl implements _PlaceDTO {
       this.img = "参拝カード",
       this.gpsMeter = 50,
       this.url = "",
-      this.proverbs = ""});
+      this.proverbs = "",
+      this.worship_card_top_image_url = ""});
 
   factory _$PlaceDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceDTOImplFromJson(json);
@@ -287,10 +301,13 @@ class _$PlaceDTOImpl implements _PlaceDTO {
   @override
   @JsonKey()
   final String proverbs;
+  @override
+  @JsonKey()
+  final String worship_card_top_image_url;
 
   @override
   String toString() {
-    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, worshipUrl: $worshipUrl, img: $img, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs)';
+    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, worshipUrl: $worshipUrl, img: $img, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs, worship_card_top_image_url: $worship_card_top_image_url)';
   }
 
   @override
@@ -318,7 +335,11 @@ class _$PlaceDTOImpl implements _PlaceDTO {
                 other.gpsMeter == gpsMeter) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.proverbs, proverbs) ||
-                other.proverbs == proverbs));
+                other.proverbs == proverbs) &&
+            (identical(other.worship_card_top_image_url,
+                    worship_card_top_image_url) ||
+                other.worship_card_top_image_url ==
+                    worship_card_top_image_url));
   }
 
   @JsonKey(ignore: true)
@@ -336,7 +357,8 @@ class _$PlaceDTOImpl implements _PlaceDTO {
       img,
       gpsMeter,
       url,
-      proverbs);
+      proverbs,
+      worship_card_top_image_url);
 
   @JsonKey(ignore: true)
   @override
@@ -365,7 +387,8 @@ abstract class _PlaceDTO implements PlaceDTO {
       final String img,
       final int gpsMeter,
       final String url,
-      final String proverbs}) = _$PlaceDTOImpl;
+      final String proverbs,
+      final String worship_card_top_image_url}) = _$PlaceDTOImpl;
 
   factory _PlaceDTO.fromJson(Map<String, dynamic> json) =
       _$PlaceDTOImpl.fromJson;
@@ -394,6 +417,8 @@ abstract class _PlaceDTO implements PlaceDTO {
   String get url;
   @override
   String get proverbs;
+  @override
+  String get worship_card_top_image_url;
   @override
   @JsonKey(ignore: true)
   _$$PlaceDTOImplCopyWith<_$PlaceDTOImpl> get copyWith =>
