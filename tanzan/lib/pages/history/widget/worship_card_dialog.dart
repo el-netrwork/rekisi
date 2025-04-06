@@ -3,24 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:intl/intl.dart';
 import 'package:stamp_rally/assets/assets.gen.dart';
 import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
-
-import '../../../app/configuration/configuration.dart';
+import 'package:stamp_rally/common/services/open_another_url_service.dart';
 import '../../../common/components/custom_network_image.dart';
-
-String formatJapaneseDate(DateTime date) {
-  final japaneseEra = date.year - 2018; // 令和は2019年から
-  final weekDayNames = ['日', '月', '火', '水', '木', '金', '土'];
-  final formattedDate = DateFormat('MM月dd日').format(date);
-  final weekDay = weekDayNames[date.weekday % 7];
-  final time = DateFormat('HH:mm:ss').format(date);
-
-  return '令和$japaneseEra年$formattedDate($weekDay) $time';
-}
+import '../utility/format_japanese_date.dart';
+import '../utility/get_font_size_by_length.dart';
 
 void showWorshipCardDialog(BuildContext context, PlaceModel place) {
   showGeneralDialog(
@@ -32,29 +22,34 @@ void showWorshipCardDialog(BuildContext context, PlaceModel place) {
       pageBuilder: (context, animation1, animation2) {
         //　GlobalKeyを作成
         final globalKey = GlobalKey();
-        return Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Dialog(
-              clipBehavior: Clip.antiAlias,
-              insetPadding:
-                  const EdgeInsets.symmetric(horizontal: 2, vertical: 60),
-              child: Consumer(
-                builder: (context, WidgetRef ref, _) {
-                  return SizedBox(
-                    child: Column(
-                      children: [
-                        Expanded(
-                            flex: 12,
-                            child: _WorshipCard(
-                                globalKey: globalKey, place: place)),
-                        Expanded(
-                            flex: 1,
-                            child: _CompleteButton(globalKey: globalKey))
-                      ],
-                    ),
-                  );
-                },
-              )),
+        return MediaQuery(
+          data:
+              MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Dialog(
+                clipBehavior: Clip.antiAlias,
+                insetPadding:
+                    const EdgeInsets.symmetric(horizontal: 2, vertical: 60),
+                child: Consumer(
+                  builder: (context, WidgetRef ref, _) {
+                    return SizedBox(
+                      child: Column(
+                        children: [
+                          Expanded(
+                              flex: 12,
+                              child: _WorshipCard(
+                                  globalKey: globalKey, place: place)),
+                          Expanded(
+                              flex: 1,
+                              child: _CompleteButton(
+                                  globalKey: globalKey, place: place))
+                        ],
+                      ),
+                    );
+                  },
+                )),
+          ),
         );
       });
 }
@@ -67,6 +62,7 @@ class _WorshipCard extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final placeNameSize =  place.name.contains('\n') ? 22.0 : 27.0;
     return RepaintBoundary(
       key: globalKey,
       child: GestureDetector(
@@ -82,20 +78,20 @@ class _WorshipCard extends HookConsumerWidget {
               children: [
                 // 上の画像。
                 Expanded(
-                  child: Container(
-                    color: Colors.red,
+                  child: SizedBox(
                     width: double.infinity,
                     height: double.infinity,
-                    child: Assets.png.worshipCard.image(
-                      fit: BoxFit.fill,
-                    ),
+                    child: Image.network(place.worshipCardTopUrl,
+                        fit: BoxFit.fill),
+                    // child: Assets.png.worshipCard.image(
+                    //   fit: BoxFit.fill,
+                    // ),
                   ),
                 ),
                 Expanded(
                     child: Column(
                   children: [
-                    // Flexibleにして、大きさは小さく
-                    // 文字サイズは、文字数が多い場合は、文字を小さくする。
+                    // 神社名
                     Flexible(
                       flex: 4,
                       child: Padding(
@@ -105,11 +101,12 @@ class _WorshipCard extends HookConsumerWidget {
                           style: GoogleFonts.sawarabiMincho(
                               textStyle:
                                   const TextStyle(fontWeight: FontWeight.bold),
-                              fontSize: 27.0,
+                              fontSize: placeNameSize,
                               color: Colors.purple),
                         ),
                       ),
                     ),
+                    // 参拝カードメッセージ
                     Expanded(
                       flex: 4,
                       child: Padding(
@@ -121,7 +118,7 @@ class _WorshipCard extends HookConsumerWidget {
                             style: GoogleFonts.sawarabiMincho(
                               textStyle:
                                   const TextStyle(fontWeight: FontWeight.w500),
-                              fontSize: 15.0,
+                              fontSize: getFontSizeByLength(place.proverbs),
                             ),
                           ),
                         ),
@@ -185,7 +182,10 @@ class _WorshipCard extends HookConsumerWidget {
 
 // 完了ボタン
 class _CompleteButton extends HookConsumerWidget {
-  const _CompleteButton({super.key, required this.globalKey});
+  const _CompleteButton(
+      {super.key, required this.globalKey, required this.place});
+
+  final PlaceModel place;
 
   final GlobalKey globalKey;
 
@@ -195,24 +195,63 @@ class _CompleteButton extends HookConsumerWidget {
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
-        child: ElevatedButton(
-            onPressed: () async {
-              // スナックバーを出す処理
-              await LoadingAction.showSnackBar(() async {
-                // widgetを画像化
-                final pngBytes = await globalKey.createWidgetImage();
+        child: Row(
+          children: [
+            // アルバムに保存ボタン
+            Expanded(
+              flex: 4,
+              child: ElevatedButton(
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.indigo),
+                  onPressed: () async {
+                    // スナックバーを出す処理
+                    await LoadingAction.showSnackBar(() async {
+                      // widgetを画像化
+                      final pngBytes = await globalKey.createWidgetImage();
 
-                // 結果を保存
-                await ImageGallerySaver.saveImage(quality: 100, pngBytes);
-                if (context.mounted) {
-                  context.pop();
-                }
-              }, context, "保存に成功しました。", "保存に失敗しました。再度やり直してください。", true);
-            },
-            child: const Text(
-              "参拝カードをアルバムに保存",
-              style: TextStyle(color: Colors.white),
-            )),
+                      // 結果を保存
+                      final result = await ImageGallerySaver.saveImage(
+                          quality: 100, pngBytes);
+                      if (context.mounted) {
+                        context.pop();
+                      }
+                    }, context, "保存に成功しました。", "保存に失敗しました。再度やり直してください。", true);
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.save, color: Colors.white),
+                      SizedBox(width: 5),
+                      Text(
+                        "アルバムに保存",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
+                  )),
+            ),
+            Visibility(
+                visible: place.isWorshipCardWeb,
+                child: const SizedBox(width: 10)),
+            // 別サイトへ移動ボタン
+            Visibility(
+              visible: place.isWorshipCardWeb,
+              child: Expanded(
+                  flex: 3,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        OpenAnotherUrlService.openUrl(place.worshipUrl);
+                      },
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.output, color: Colors.white),
+                          SizedBox(width: 5),
+                          Text('別サイトへ', style: TextStyle(color: Colors.white)),
+                        ],
+                      ))),
+            )
+          ],
+        ),
       ),
     );
   }

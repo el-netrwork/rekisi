@@ -1,7 +1,7 @@
 {
     "flavor": "production",
-    "appId": "jp.co.eln.stamp_rally_tanzan",
-    "iosAppId": "jp.co.eln.stampRallytanzan",
+    "appId": "jp.co.eln.stamp_rally_tanzan0",
+    "iosAppId": "jp.co.eln.stampRallytanzan0",
     "appNameIos": "談山神社スタンプラリー",
     "appNameAndroid": "談山神社スタンプラリー",
     "supabaseUrl": "https://zooleonemjdnxakyazek.supabase.co",
