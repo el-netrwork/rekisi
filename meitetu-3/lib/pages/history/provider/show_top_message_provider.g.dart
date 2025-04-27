@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_places_use_case.dart';
+part of 'show_top_message_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getPlacesUseCaseHash() => r'be6e4168779d758d6d8c10c9c682946120acc3fa';
+String _$showTopMessageProviderHash() =>
+    r'6f81c62f1375f97fa2b47db999b40d927484d1b2';
 
-/// See also [getPlacesUseCase].
-@ProviderFor(getPlacesUseCase)
-final getPlacesUseCaseProvider =
-    AutoDisposeFutureProvider<List<PlaceModel>>.internal(
-  getPlacesUseCase,
-  name: r'getPlacesUseCaseProvider',
+/// See also [ShowTopMessageProvider].
+@ProviderFor(ShowTopMessageProvider)
+final showTopMessageProviderProvider =
+    NotifierProvider<ShowTopMessageProvider, bool>.internal(
+  ShowTopMessageProvider.new,
+  name: r'showTopMessageProviderProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$getPlacesUseCaseHash,
+      : _$showTopMessageProviderHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef GetPlacesUseCaseRef = AutoDisposeFutureProviderRef<List<PlaceModel>>;
+typedef _$ShowTopMessageProvider = Notifier<bool>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
