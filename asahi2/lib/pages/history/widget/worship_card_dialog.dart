@@ -245,7 +245,6 @@ class _CompleteButton extends HookConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.output, color: Colors.white),
-                          SizedBox(width: 5),
                           Text('別サイトへ', style: TextStyle(color: Colors.white)),
                         ],
                       ))),
