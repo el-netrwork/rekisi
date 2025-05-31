@@ -3,14 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:stamp_rally/assets/assets.gen.dart';
+import 'package:intl/intl.dart';
 import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
 import '../../../common/components/custom_network_image.dart';
-import '../utility/format_japanese_date.dart';
-import '../utility/get_font_size_by_length.dart';
+
+String formatJapaneseDate(DateTime date) {
+  final japaneseEra = date.year - 2018; // 令和は2019年から
+  const weekDayNames = ['日', '月', '火', '水', '木', '金', '土'];
+  final formattedDate = DateFormat('MM月dd日').format(date);
+  final weekDay = weekDayNames[date.weekday % 7];
+  final time = DateFormat('HH:mm:ss').format(date);
+
+  return '令和$japaneseEra年$formattedDate($weekDay) $time';
+}
+
+double getFontSizeByLength(String text) {
+  // 150文字が上限
+  final double textSize = text.length > 100
+      ? 10
+      : text.length > 60
+          ? 12
+          : 15;
+  return textSize;
+}
 
 void showWorshipCardDialog(BuildContext context, PlaceModel place) {
   showGeneralDialog(
@@ -62,7 +80,7 @@ class _WorshipCard extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final placeNameSize =  place.name.contains('\n') ? 22.0 : 27.0;
+    final placeNameSize = place.name.contains('\n') ? 22.0 : 27.0;
     return RepaintBoundary(
       key: globalKey,
       child: GestureDetector(

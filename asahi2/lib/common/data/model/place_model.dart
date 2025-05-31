@@ -1,6 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
+import 'package:logger/logger.dart';
 import 'package:stamp_rally/common/data/dto/place_dto.dart';
+import 'package:stamp_rally/core/flogger.dart';
 
 part 'place_model.freezed.dart';
 
@@ -10,25 +12,24 @@ enum TypeRegisterStamp { gps, qr, sample, gpsDate }
 class PlaceModel with _$PlaceModel {
   const PlaceModel._();
 
-  const factory PlaceModel({
-    required String historicSpotId,
-    required String name,
-    required String areaName,
-    required String yomigana,
-    required double longitude,
-    required double latitude,
-    required TypeRegisterStamp typeRegisterStamp,
-    @Default(50) int gpsMeter,
-    @Default('') String url,
-    @Default('') String worshipUrl,
-    @Default('参拝カード.png') String img,
-    @Default('') String proverbs,
-    @Default('') String worshipCardTopUrl,
-    @Default(false) bool isStamped,
-    @Default([]) List<DateTime> stampedDateTimeList,
-    DateTime? dateStart,
-    DateTime? dateEnd,
-  }) = _PlaceModel;
+  const factory PlaceModel(
+      {required String historicSpotId,
+      required String name,
+      required String areaName,
+      required String yomigana,
+      required double longitude,
+      required double latitude,
+      required TypeRegisterStamp typeRegisterStamp,
+      @Default(50) int gpsMeter,
+      @Default('') String url,
+      @Default('') String worshipUrl,
+      @Default('参拝カード.png') String img,
+      @Default('') String proverbs,
+      @Default('') String worshipCardTopUrl,
+      @Default(false) bool isStamped,
+      @Default([]) List<DateTime> stampedDateTimeList,
+      DateTime? dateStart,
+      DateTime? dateEnd}) = _PlaceModel;
 
   // 参拝カード取得をweb上にする
   bool get isWorshipCardWeb {
@@ -70,27 +71,97 @@ class PlaceModel with _$PlaceModel {
     return stringList;
   }
 
+  // 平日か休日かを判定する
+  static bool _isWeekend(DateTime date) {
+    return date.weekday == DateTime.saturday || date.weekday == DateTime.sunday;
+  }
+
+  // dateStartを取得する
+  static DateTime _getDateStart(PlaceDTO data) {
+    try {
+      if (data.dateStart.isNotEmpty) {
+        return DateFormat("yyyy-MM-dd HH:mm:ss")
+            .parse(data.dateStart!)
+            .toLocal();
+      }
+
+      final baseDate = DateTime.now();
+      if (_isWeekend(baseDate)) {
+        // 休日の場合は休日の開始時刻を返す
+        final dateStart = DateTime(
+            baseDate.year,
+            baseDate.month,
+            baseDate.day,
+            int.parse(data.timeStartHoliday!.split(':')[0]),
+            int.parse(data.timeStartHoliday!.split(':')[1]));
+        return dateStart;
+      } else {
+        // 平日の場合は平日の開始時刻を返す
+        final dateStart = DateTime(
+            baseDate.year,
+            baseDate.month,
+            baseDate.day,
+            int.parse(data.timeStartWeekDays!.split(':')[0]),
+            int.parse(data.timeStartWeekDays!.split(':')[1]));
+        return dateStart;
+      }
+    } catch (e) {
+      // エラーの場合、dateStartをログに出力
+      Flogger.e('Error parsing dateStart: ${data.dateStart}, Error: $e',
+          error: e, stackTrace: StackTrace.current);
+      rethrow;
+    }
+  }
+
+  // dateEndを取得する
+  static DateTime _getDateEnd(PlaceDTO data) {
+    try {
+      if (data.dateEnd.isNotEmpty) {
+        return DateFormat("yyyy-MM-dd HH:mm:ss").parse(data.dateEnd!).toLocal();
+      }
+      final baseDate = DateTime.now();
+      if (_isWeekend(baseDate)) {
+        // 休日の場合は休日の終了時刻を返す
+        return DateTime(
+            baseDate.year,
+            baseDate.month,
+            baseDate.day,
+            int.parse(data.timeEndHoliday!.split(':')[0]),
+            int.parse(data.timeEndHoliday!.split(':')[1]));
+      } else {
+        // 平日の場合は平日の終了時刻を返す
+        return DateTime(
+            baseDate.year,
+            baseDate.month,
+            baseDate.day,
+            int.parse(data.timeEndWeekDays!.split(':')[0]),
+            int.parse(data.timeEndWeekDays!.split(':')[1]));
+      }
+    } catch (e) {
+      Flogger.e('Error parsing dateStart: ${data.dateEnd}, Error: $e',
+          error: e, stackTrace: StackTrace.current);
+      rethrow;
+    }
+  }
+
   // CSVデータから型変換
   factory PlaceModel.fromAsset({required PlaceDTO data}) {
     return PlaceModel(
-        historicSpotId: data.historicSpotId,
-        name: data.name,
-        areaName: data.areaName,
-        yomigana: data.yomigana,
-        longitude: data.longitude,
-        latitude: data.latitude,
-        typeRegisterStamp: data.typeRegisterStamp,
-        url: data.url,
-        worshipUrl: data.worshipUrl,
-        gpsMeter: data.gpsMeter,
-        img: data.img,
-        proverbs: data.proverbs,
-        worshipCardTopUrl: data.worship_card_top_image_url,
-        dateStart: data.dateStart.isEmpty
-            ? DateTime.parse("1990-01-01")
-            : DateTime.parse(data.dateStart),
-        dateEnd: data.dateEnd.isEmpty
-            ? DateTime.parse("2050-12-31")
-            : DateTime.parse(data.dateEnd));
+      historicSpotId: data.historicSpotId,
+      name: data.name,
+      areaName: data.areaName,
+      yomigana: data.yomigana,
+      longitude: data.longitude,
+      latitude: data.latitude,
+      typeRegisterStamp: data.typeRegisterStamp,
+      url: data.url,
+      worshipUrl: data.worshipUrl,
+      gpsMeter: data.gpsMeter,
+      img: data.img,
+      proverbs: data.proverbs,
+      worshipCardTopUrl: data.worship_card_top_image_url,
+      dateStart: _getDateStart(data),
+      dateEnd: _getDateEnd(data),
+    );
   }
 }

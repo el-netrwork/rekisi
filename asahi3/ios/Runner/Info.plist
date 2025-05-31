@@ -33,7 +33,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>実際にスポットの近くにいるかどうか確認するために使用します。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>画像を保存します。</string>
+	<string>表示されている「参拝カード」または「完了カード」を保存するため、写真ライブラリへのアクセスをリクエストしています。これでいつでも参拝記録を振り返ることができます。</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

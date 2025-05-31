@@ -25,6 +25,10 @@ _$PlaceDTOImpl _$$PlaceDTOImplFromJson(Map<String, dynamic> json) =>
           json['worship_card_top_image_url'] as String? ?? "",
       dateStart: json['dateStart'] as String? ?? "",
       dateEnd: json['dateEnd'] as String? ?? "",
+      timeStartWeekDays: json['timeStartWeekDays'] as String?,
+      timeEndWeekDays: json['timeEndWeekDays'] as String?,
+      timeStartHoliday: json['timeStartHoliday'] as String?,
+      timeEndHoliday: json['timeEndHoliday'] as String?,
     );
 
 Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
@@ -45,6 +49,10 @@ Map<String, dynamic> _$$PlaceDTOImplToJson(_$PlaceDTOImpl instance) =>
       'worship_card_top_image_url': instance.worship_card_top_image_url,
       'dateStart': instance.dateStart,
       'dateEnd': instance.dateEnd,
+      'timeStartWeekDays': instance.timeStartWeekDays,
+      'timeEndWeekDays': instance.timeEndWeekDays,
+      'timeStartHoliday': instance.timeStartHoliday,
+      'timeEndHoliday': instance.timeEndHoliday,
     };
 
 const _$TypeRegisterStampEnumMap = {
