@@ -35,6 +35,10 @@ mixin _$PlaceDTO {
   String get worship_card_top_image_url => throw _privateConstructorUsedError;
   String get dateStart => throw _privateConstructorUsedError;
   String get dateEnd => throw _privateConstructorUsedError;
+  String? get timeStartWeekDays => throw _privateConstructorUsedError;
+  String? get timeEndWeekDays => throw _privateConstructorUsedError;
+  String? get timeStartHoliday => throw _privateConstructorUsedError;
+  String? get timeEndHoliday => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +66,11 @@ abstract class $PlaceDTOCopyWith<$Res> {
       String proverbs,
       String worship_card_top_image_url,
       String dateStart,
-      String dateEnd});
+      String dateEnd,
+      String? timeStartWeekDays,
+      String? timeEndWeekDays,
+      String? timeStartHoliday,
+      String? timeEndHoliday});
 }
 
 /// @nodoc
@@ -93,6 +101,10 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
     Object? worship_card_top_image_url = null,
     Object? dateStart = null,
     Object? dateEnd = null,
+    Object? timeStartWeekDays = freezed,
+    Object? timeEndWeekDays = freezed,
+    Object? timeStartHoliday = freezed,
+    Object? timeEndHoliday = freezed,
   }) {
     return _then(_value.copyWith(
       historicSpotId: null == historicSpotId
@@ -155,6 +167,22 @@ class _$PlaceDTOCopyWithImpl<$Res, $Val extends PlaceDTO>
           ? _value.dateEnd
           : dateEnd // ignore: cast_nullable_to_non_nullable
               as String,
+      timeStartWeekDays: freezed == timeStartWeekDays
+          ? _value.timeStartWeekDays
+          : timeStartWeekDays // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeEndWeekDays: freezed == timeEndWeekDays
+          ? _value.timeEndWeekDays
+          : timeEndWeekDays // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeStartHoliday: freezed == timeStartHoliday
+          ? _value.timeStartHoliday
+          : timeStartHoliday // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeEndHoliday: freezed == timeEndHoliday
+          ? _value.timeEndHoliday
+          : timeEndHoliday // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -182,7 +210,11 @@ abstract class _$$PlaceDTOImplCopyWith<$Res>
       String proverbs,
       String worship_card_top_image_url,
       String dateStart,
-      String dateEnd});
+      String dateEnd,
+      String? timeStartWeekDays,
+      String? timeEndWeekDays,
+      String? timeStartHoliday,
+      String? timeEndHoliday});
 }
 
 /// @nodoc
@@ -211,6 +243,10 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
     Object? worship_card_top_image_url = null,
     Object? dateStart = null,
     Object? dateEnd = null,
+    Object? timeStartWeekDays = freezed,
+    Object? timeEndWeekDays = freezed,
+    Object? timeStartHoliday = freezed,
+    Object? timeEndHoliday = freezed,
   }) {
     return _then(_$PlaceDTOImpl(
       historicSpotId: null == historicSpotId
@@ -273,6 +309,22 @@ class __$$PlaceDTOImplCopyWithImpl<$Res>
           ? _value.dateEnd
           : dateEnd // ignore: cast_nullable_to_non_nullable
               as String,
+      timeStartWeekDays: freezed == timeStartWeekDays
+          ? _value.timeStartWeekDays
+          : timeStartWeekDays // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeEndWeekDays: freezed == timeEndWeekDays
+          ? _value.timeEndWeekDays
+          : timeEndWeekDays // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeStartHoliday: freezed == timeStartHoliday
+          ? _value.timeStartHoliday
+          : timeStartHoliday // ignore: cast_nullable_to_non_nullable
+              as String?,
+      timeEndHoliday: freezed == timeEndHoliday
+          ? _value.timeEndHoliday
+          : timeEndHoliday // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -295,7 +347,11 @@ class _$PlaceDTOImpl implements _PlaceDTO {
       this.proverbs = "",
       this.worship_card_top_image_url = "",
       this.dateStart = "",
-      this.dateEnd = ""});
+      this.dateEnd = "",
+      this.timeStartWeekDays,
+      this.timeEndWeekDays,
+      this.timeStartHoliday,
+      this.timeEndHoliday});
 
   factory _$PlaceDTOImpl.fromJson(Map<String, dynamic> json) =>
       _$$PlaceDTOImplFromJson(json);
@@ -338,10 +394,18 @@ class _$PlaceDTOImpl implements _PlaceDTO {
   @override
   @JsonKey()
   final String dateEnd;
+  @override
+  final String? timeStartWeekDays;
+  @override
+  final String? timeEndWeekDays;
+  @override
+  final String? timeStartHoliday;
+  @override
+  final String? timeEndHoliday;
 
   @override
   String toString() {
-    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, worshipUrl: $worshipUrl, img: $img, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs, worship_card_top_image_url: $worship_card_top_image_url, dateStart: $dateStart, dateEnd: $dateEnd)';
+    return 'PlaceDTO(historicSpotId: $historicSpotId, name: $name, areaName: $areaName, yomigana: $yomigana, longitude: $longitude, latitude: $latitude, typeRegisterStamp: $typeRegisterStamp, worshipUrl: $worshipUrl, img: $img, gpsMeter: $gpsMeter, url: $url, proverbs: $proverbs, worship_card_top_image_url: $worship_card_top_image_url, dateStart: $dateStart, dateEnd: $dateEnd, timeStartWeekDays: $timeStartWeekDays, timeEndWeekDays: $timeEndWeekDays, timeStartHoliday: $timeStartHoliday, timeEndHoliday: $timeEndHoliday)';
   }
 
   @override
@@ -376,28 +440,41 @@ class _$PlaceDTOImpl implements _PlaceDTO {
                     worship_card_top_image_url) &&
             (identical(other.dateStart, dateStart) ||
                 other.dateStart == dateStart) &&
-            (identical(other.dateEnd, dateEnd) || other.dateEnd == dateEnd));
+            (identical(other.dateEnd, dateEnd) || other.dateEnd == dateEnd) &&
+            (identical(other.timeStartWeekDays, timeStartWeekDays) ||
+                other.timeStartWeekDays == timeStartWeekDays) &&
+            (identical(other.timeEndWeekDays, timeEndWeekDays) ||
+                other.timeEndWeekDays == timeEndWeekDays) &&
+            (identical(other.timeStartHoliday, timeStartHoliday) ||
+                other.timeStartHoliday == timeStartHoliday) &&
+            (identical(other.timeEndHoliday, timeEndHoliday) ||
+                other.timeEndHoliday == timeEndHoliday));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      historicSpotId,
-      name,
-      areaName,
-      yomigana,
-      longitude,
-      latitude,
-      typeRegisterStamp,
-      worshipUrl,
-      img,
-      gpsMeter,
-      url,
-      proverbs,
-      worship_card_top_image_url,
-      dateStart,
-      dateEnd);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        historicSpotId,
+        name,
+        areaName,
+        yomigana,
+        longitude,
+        latitude,
+        typeRegisterStamp,
+        worshipUrl,
+        img,
+        gpsMeter,
+        url,
+        proverbs,
+        worship_card_top_image_url,
+        dateStart,
+        dateEnd,
+        timeStartWeekDays,
+        timeEndWeekDays,
+        timeStartHoliday,
+        timeEndHoliday
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -429,7 +506,11 @@ abstract class _PlaceDTO implements PlaceDTO {
       final String proverbs,
       final String worship_card_top_image_url,
       final String dateStart,
-      final String dateEnd}) = _$PlaceDTOImpl;
+      final String dateEnd,
+      final String? timeStartWeekDays,
+      final String? timeEndWeekDays,
+      final String? timeStartHoliday,
+      final String? timeEndHoliday}) = _$PlaceDTOImpl;
 
   factory _PlaceDTO.fromJson(Map<String, dynamic> json) =
       _$PlaceDTOImpl.fromJson;
@@ -464,6 +545,14 @@ abstract class _PlaceDTO implements PlaceDTO {
   String get dateStart;
   @override
   String get dateEnd;
+  @override
+  String? get timeStartWeekDays;
+  @override
+  String? get timeEndWeekDays;
+  @override
+  String? get timeStartHoliday;
+  @override
+  String? get timeEndHoliday;
   @override
   @JsonKey(ignore: true)
   _$$PlaceDTOImplCopyWith<_$PlaceDTOImpl> get copyWith =>

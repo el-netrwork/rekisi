@@ -2,7 +2,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stamp_rally/common/data/dto/complete_card_dto.dart';
 import 'package:stamp_rally/core/log_mabager/dto/log_dto.dart';
 import 'package:stamp_rally/core/log_mabager/repository/log_manager_repository.dart';
-import 'package:stamp_rally/features/complete_card/repository/complete_card_repository.dart';
+import 'package:stamp_rally/pages/history/repository/complete_card_repository.dart';
 
 import '../../../common/use_case/fetch_complete_card_data_use_case_provider.dart';
 

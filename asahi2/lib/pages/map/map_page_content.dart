@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:stamp_rally/app/configuration/production/config_production.dart';
-import 'package:stamp_rally/common/use_case/fetch_map_url_use_case.dart';
+import 'package:stamp_rally/core/use_case/fetch_map_url_use_case.dart';
 import '../../assets/assets.gen.dart';
 import '../../common/components/custom_network_image.dart';
 import '../../common/services/open_another_url_service.dart';

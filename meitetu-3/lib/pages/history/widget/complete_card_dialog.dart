@@ -10,8 +10,9 @@ import 'package:stamp_rally/assets/assets.gen.dart';
 import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/complete_card_scoped_provider.dart';
-import 'package:stamp_rally/features/complete_card/provider/fetch_complete_card_use_case.dart';
+import 'package:stamp_rally/pages/history/provider/complete_card_scoped_provider.dart';
+import 'package:stamp_rally/pages/history/provider/fetch_complete_card_use_case.dart';
+import 'package:stamp_rally/pages/history/utility/get_font_size_by_length.dart';
 
 void showCompleteCardDialog(BuildContext context) {
   showGeneralDialog(
@@ -23,42 +24,49 @@ void showCompleteCardDialog(BuildContext context) {
       pageBuilder: (context, animation1, animation2) {
         //　GlobalKeyを作成
         final globalKey = GlobalKey();
-        return Scaffold(
-          backgroundColor: Colors.transparent,
-          body: Dialog(
-              clipBehavior: Clip.antiAlias,
-              insetPadding:
-                  const EdgeInsets.symmetric(horizontal: 2, vertical: 60),
-              child: Consumer(
-                builder: (context, WidgetRef ref, _) {
-                  final async = ref.watch(fetchCompleteCardUseCaseProvider);
+        return MediaQuery(
+          data:
+              MediaQuery.of(context).copyWith(textScaler: TextScaler.noScaling),
+          child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Dialog(
+                clipBehavior: Clip.antiAlias,
+                insetPadding:
+                    const EdgeInsets.symmetric(horizontal: 2, vertical: 60),
+                child: Consumer(
+                  builder: (context, WidgetRef ref, _) {
+                    final async = ref.watch(fetchCompleteCardUseCaseProvider);
 
-                  return switch (async) {
-                    AsyncData(:final value) => SizedBox(
-                        // height: MediaQuery.of(context).size.height,
-                        child: Column(
-                          children: [
-                            // 完了カードの表示
-                            Expanded(
-                                flex: 10,
-                                child: ProviderScope(overrides: [
-                                  completeCardModelScopedProvider
-                                      .overrideWithValue(value)
-                                ], child: _CompleteCard(globalKey: globalKey))),
-                            // アルバムに保存ボタン
-                            Expanded(
-                                flex: 1,
-                                child: _CompleteButton(globalKey: globalKey))
-                          ],
+                    return switch (async) {
+                      AsyncData(:final value) => SizedBox(
+                          // height: MediaQuery.of(context).size.height,
+                          child: Column(
+                            children: [
+                              // 完了カードの表示
+                              Expanded(
+                                  flex: 10,
+                                  child: ProviderScope(
+                                      overrides: [
+                                        completeCardModelScopedProvider
+                                            .overrideWithValue(value)
+                                      ],
+                                      child:
+                                          _CompleteCard(globalKey: globalKey))),
+                              // アルバムに保存ボタン
+                              Expanded(
+                                  flex: 1,
+                                  child: _CompleteButton(globalKey: globalKey))
+                            ],
+                          ),
                         ),
-                      ),
-                    AsyncError(:final error) => const Center(
-                        child: Text("取得に失敗しました。"),
-                      ),
-                    _ => Container(),
-                  };
-                },
-              )),
+                      AsyncError(:final error) => const Center(
+                          child: Text("取得に失敗しました。"),
+                        ),
+                      _ => Container(),
+                    };
+                  },
+                )),
+          ),
         );
       });
 }
@@ -72,12 +80,6 @@ class _CompleteCard extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final completeCard = ref.watch(completeCardModelScopedProvider);
     final title = completeCard.title;
-    // 150文字が上限
-    final double textSize = title.length > 100
-        ? 10
-        : title.length > 60
-            ? 12
-            : 15;
     return RepaintBoundary(
       key: globalKey,
       child: GestureDetector(
@@ -105,8 +107,8 @@ class _CompleteCard extends HookConsumerWidget {
                         horizontal: 25, vertical: 10),
                     child: Text(
                       title,
-                      style: TextStyle(
-                          fontSize: textSize,
+                      style:  TextStyle(
+                        fontSize: getFontSizeByLength(title),
                           color: Colors.black,
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.italic),

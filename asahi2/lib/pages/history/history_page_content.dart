@@ -12,6 +12,7 @@ import 'package:stamp_rally/pages/history/provider/register_complete_card_use_ca
 import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
 import 'package:stamp_rally/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
 import 'package:stamp_rally/pages/history/provider/show_top_message_provider.dart';
+import 'package:stamp_rally/pages/history/provider/stamp_validater_provider.dart';
 import 'package:stamp_rally/pages/history/widget/alert_qr_register_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/complete_card_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/worship_card_dialog.dart';
@@ -334,7 +335,10 @@ class _Item extends ConsumerWidget {
                       child: GestureDetector(
                         onTap: () async {
                           showProgressDialog(context);
-                          final message = await validate(place, ref);
+                          final validator =
+                              ref.read(stampValidatorProviderProvider);
+                          final message =
+                              await validator.getWorshipCardValidator(place);
                           // 距離圏内 & サンプルの場合は取得可能。
                           if ((message == null ||
                                   place.typeRegisterStamp ==
@@ -421,17 +425,4 @@ class _Item extends ConsumerWidget {
       ),
     );
   }
-}
-
-Future<String?> validate(PlaceModel place, WidgetRef ref) async {
-  final currentTime = DateTime.now();
-  final locationService = ref.watch(locationServiceProvider);
-  final isNotWithinDate = currentTime.isBefore(place.dateStart!) ||
-      currentTime.isAfter(place.dateEnd!);
-  if (isNotWithinDate) return "期間内ではありません。";
-  final isWithin = await locationService.isWithinDistance(
-      meter: place.gpsMeter.toDouble(),
-      lat: place.latitude,
-      lon: place.longitude);
-  if (!isWithin) return "距離が離れすぎています。";
 }

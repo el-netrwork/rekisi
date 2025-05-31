@@ -1,19 +1,20 @@
+
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'show_download_page_handler.g.dart';
+part 'show_top_message_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-class ShowDownloadPageHandler extends _$ShowDownloadPageHandler {
+class ShowTopMessageProvider extends _$ShowTopMessageProvider {
   @override
   bool build() {
     return true;
   }
 
-  void hide() {
+  void hideMessage(){
     state = false;
   }
 
-  void show() {
+  void openMessage(){
     state = true;
   }
 }

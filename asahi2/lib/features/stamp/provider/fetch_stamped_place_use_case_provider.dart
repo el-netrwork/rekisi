@@ -1,6 +1,6 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
-import 'package:stamp_rally/common/use_case/get_places_use_case.dart';
+import 'package:stamp_rally/core/use_case/get_places_use_case.dart';
 import 'package:stamp_rally/features/stamp/repository/stamp_repository.dart';
 
 part 'fetch_stamped_place_use_case_provider.g.dart';
@@ -8,7 +8,6 @@ part 'fetch_stamped_place_use_case_provider.g.dart';
 @riverpod
 Future<List<PlaceModel>> fetchStampedPlaceUseCase(
     FetchStampedPlaceUseCaseRef ref) async {
-
   // スタンプ押下された場所一覧
   final stampedList = (await ref.watch(stampRepositoryProvider).fetchList());
 
@@ -24,7 +23,7 @@ Future<List<PlaceModel>> fetchStampedPlaceUseCase(
           stampedList.firstWhere((s) => s.historicSpotId == e.historicSpotId);
 
       e = e.copyWith(
-        stampedDateTimeList: data.stampedDateTimeList, isStamped: true);
+          stampedDateTimeList: data.stampedDateTimeList, isStamped: true);
     }
     return e;
   }).toList();

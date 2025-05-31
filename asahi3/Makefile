@@ -25,3 +25,6 @@ test:
 
 relese_apk:
 	@fvm flutter build apk --release --dart-define-from-file=lib/app/configuration/production/dart_defines_production.json
+
+ios:
+flutter build ios --release --dart-define-from-file=lib/app/configuration/production/dart_defines_production.json
