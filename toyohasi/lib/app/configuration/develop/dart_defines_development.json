@@ -1,7 +1,7 @@
 {
     "flavor": "develop",
-    "appId": "jp.co.eln.stamp_rally_toyohasi.development",
-    "iosAppId": "jp.co.eln.stampRallytoyohasi.development",
+    "appId": "jp.co.eln.stamp_rally_toyohasi.develop",
+    "iosAppId": "jp.co.eln.stampRallytoyohasi.develop",
     "appNameIos": "豊橋/蒲郡キャンペーン",
     "appNameAndroid": "豊橋/蒲郡キャンペーン",
     "supabaseUrl": "https://zooleonemjdnxakyazek.supabase.co",

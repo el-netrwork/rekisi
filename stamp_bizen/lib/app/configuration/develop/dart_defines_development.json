@@ -1,8 +1,8 @@
 {
     "flavor": "develop",
-    "appId": "jp.co.eln.stamp_rally_bizen.development",
-    "iosAppId": "jp.co.eln.stampRallybizen.development",
-    "appNameIos": "備前岡山式内社巡り",
+    "appId": "jp.co.eln.stamp_rally_bizen.develop",
+    "iosAppId": "jp.co.eln.stampRallybizen.develop",
+    "appNameIos": "備前岡山スタンプラリー",
     "appNameAndroid": "備前岡山スタンプラリー",
     "supabaseUrl": "https://zooleonemjdnxakyazek.supabase.co",
     "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpvb2xlb25lbWpkbnhha3lhemVrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjc1Mjg0NTcsImV4cCI6MjA0MzEwNDQ1N30.Zha0YfRfyh3bTv0NAyYCb8LtSaZIcdgn82QxXSk_6ko"
