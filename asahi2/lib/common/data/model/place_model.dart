@@ -72,12 +72,17 @@ class PlaceModel with _$PlaceModel {
   }
 
   // 平日か休日かを判定する
-  static bool _isWeekend(DateTime date) {
-    return date.weekday == DateTime.saturday || date.weekday == DateTime.sunday;
+  static bool _isWeekend(DateTime date, List<DateTime> jpHoliday) {
+    return date.weekday == DateTime.saturday ||
+        date.weekday == DateTime.sunday ||
+        jpHoliday.any((holiday) =>
+            holiday.year == date.year &&
+            holiday.month == date.month &&
+            holiday.day == date.day);
   }
 
   // dateStartを取得する
-  static DateTime _getDateStart(PlaceDTO data) {
+  static DateTime _getDateStart(PlaceDTO data, List<DateTime> jpHolidays) {
     try {
       if (data.dateStart.isNotEmpty) {
         return DateFormat("yyyy-MM-dd HH:mm:ss")
@@ -86,7 +91,9 @@ class PlaceModel with _$PlaceModel {
       }
 
       final baseDate = DateTime.now();
-      if (_isWeekend(baseDate)) {
+      print("以下確認");
+      print(_isWeekend(baseDate, jpHolidays));
+      if (_isWeekend(baseDate, jpHolidays)) {
         // 休日の場合は休日の開始時刻を返す
         final dateStart = DateTime(
             baseDate.year,
@@ -114,13 +121,13 @@ class PlaceModel with _$PlaceModel {
   }
 
   // dateEndを取得する
-  static DateTime _getDateEnd(PlaceDTO data) {
+  static DateTime _getDateEnd(PlaceDTO data, List<DateTime> jpHolidays) {
     try {
       if (data.dateEnd.isNotEmpty) {
         return DateFormat("yyyy-MM-dd HH:mm:ss").parse(data.dateEnd!).toLocal();
       }
       final baseDate = DateTime.now();
-      if (_isWeekend(baseDate)) {
+      if (_isWeekend(baseDate, jpHolidays)) {
         // 休日の場合は休日の終了時刻を返す
         return DateTime(
             baseDate.year,
@@ -145,7 +152,7 @@ class PlaceModel with _$PlaceModel {
   }
 
   // CSVデータから型変換
-  factory PlaceModel.fromAsset({required PlaceDTO data}) {
+  factory PlaceModel.fromAsset({required PlaceDTO data, required List<DateTime> jpHoliday}) {
     return PlaceModel(
       historicSpotId: data.historicSpotId,
       name: data.name,
@@ -160,8 +167,8 @@ class PlaceModel with _$PlaceModel {
       img: data.img,
       proverbs: data.proverbs,
       worshipCardTopUrl: data.worship_card_top_image_url,
-      dateStart: _getDateStart(data),
-      dateEnd: _getDateEnd(data),
+      dateStart: _getDateStart(data,jpHoliday),
+      dateEnd: _getDateEnd(data,jpHoliday),
     );
   }
 }

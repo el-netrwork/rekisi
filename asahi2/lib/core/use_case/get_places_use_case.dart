@@ -4,6 +4,7 @@ import 'package:stamp_rally/common/data/dto/place_dto.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/services/convert_csv_to_json_use_case.dart';
 import 'package:stamp_rally/common/services/get_csv_from_asset_use_case.dart';
+import 'package:stamp_rally/common/services/get_holiday_jp_service.dart';
 import 'package:stamp_rally/core/flogger.dart';
 
 part 'get_places_use_case.g.dart';
@@ -22,11 +23,16 @@ Future<List<PlaceModel>> getPlacesUseCase(GetPlacesUseCaseRef ref) async {
       throw Exception('json is null');
     }
 
+    final jpHolidays =
+        await ref.read(getHolidayJpServiceProvider).getHolidays();
+
+
     // データが存在しない場合は、削除
     json.removeWhere(
         (element) => (element['historicSpotId'] as String).isEmpty);
     return json
-        .map((o) => PlaceModel.fromAsset(data: PlaceDTO.fromJson(o)))
+        .map((o) => PlaceModel.fromAsset(
+            data: PlaceDTO.fromJson(o), jpHoliday: jpHolidays))
         .toList();
   } catch (e, st) {
     Flogger.e('[GetPlaceUseCase]', error: e, stackTrace: st);
