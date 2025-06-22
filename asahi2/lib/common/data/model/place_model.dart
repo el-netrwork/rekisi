@@ -91,8 +91,6 @@ class PlaceModel with _$PlaceModel {
       }
 
       final baseDate = DateTime.now();
-      print("以下確認");
-      print(_isWeekend(baseDate, jpHolidays));
       if (_isWeekend(baseDate, jpHolidays)) {
         // 休日の場合は休日の開始時刻を返す
         final dateStart = DateTime(

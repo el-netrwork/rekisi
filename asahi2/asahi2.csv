@@ -1,28 +1,13 @@
-﻿historicSpotId,name,areaName,yomigana,latitude,longitude,typeRegisterStamp,url,gpsMeter,worship_card_top_image_url,worshipUrl,img,date,dateStart,dateEnd,proverbs,timeStartWeekDays,timeEndWeekDays,timeStartHoliday,timeEndHoliday
+﻿historicSpotId,name,areaName,yomigana,latitude,longitude,typeRegisterStamp,url,gpsMeter,worship_card_top_image_url,worshipUrl,img,proverbs
 koudai_spot_01,"神社検索ｼｽﾃﾑ研究部会
 　部会長：新田均",活動拠点,"　皇學館大学
-現代日本社会学部",34.48450734048243,136.72693322889572,sample,https://jinja-net.jp/jinja-all/index.html,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,参拝画像.png,,,,人間のやったことは、人間がまだやれることの100分の1にすぎない。(豊田佐吉 ),9:00,10:00,8:00,12:00
+現代日本社会学部",34.48450734048243,136.72693322889572,sample,https://jinja-net.jp/jinja-all/index.html,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,https://digitalpamph.nta.co.jp/library/f-pub/index.php,参拝画像.png,人間のやったことは、人間がまだやれることの100分の1にすぎない。(豊田佐吉 )
 koudai_spot_02,"　　神社史研究会　　
 　会長：白山芳太郎",活動団体,"皇學館大学神道学科
-　式内社研究部会",34.48450734048243,136.72693322889572,sample,https://www.jinja-net.jp/jinja-shi/,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,https://smart-gosyuin.jp/,参拝画像.png,,,,進まざる者は必ず退き、退かざる者は必ず進む。(福澤諭吉),9:00,10:00,8:00,12:00
-asahi2_spot_1,稲荷社大祭,朝日神社4月8日,10時～16時,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,稲荷.png,2025-04-08,2026-04-08 10:00:00,2026-04-08 16:00:00,1-7　秋の野のみ草刈り葺き宿れりし宇治のみやこの仮廬し思ほゆ / 額田王,9:00,10:00,8:00,12:00
-asahi2_spot_2,夏越し祓い,朝日神社7月18・19日,17時～19時半,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,夏祭り.png,2025/7/18,2025-07-18 17:00:00,2025-07-18 19:30:00,1-8　熟田津に船乗りせむと月待てば潮もかなひぬ今は漕ぎ出でな / 額田王,9:00,10:00,8:00,12:00
-asahi2_spot_3,箸感謝祭,朝日神社8月4日,10時～,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,夏祭り.png,2025/7/19,2025-07-19 17:00:00,2025-07-19 19:30:00,1-28　春過ぎて夏来るらし白たへの衣干したり天の香具山 / 持統天皇,9:00,10:00,8:00,12:00
-asahi2_spot_4,公孫樹龍神社大祭,朝日神社9月5日,10時～,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,公孫樹.png,2025/9/5,2025-09-05 10:00:00,2025-09-05 14:00:00,1-60　宵に逢ひて朝面無み名張にか日長き妹が廬せりけむ / 長皇子,9:00,10:00,8:00,12:00
-asahi2_spot_5,例大祭,朝日神社10月18日,10時～,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,参拝画像.png,2025/10/18,2025-10-18 10:00:00,2025-10-18 12:00:00,2-190　真木柱太き心はありしかどこのあが心鎮めかねつも / 舎人,10:00,11:00,8:00,12:00
-asahi2_spot_6,神輿渡御神事,朝日神社10月18日,13時～17時,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,参拝画像.png,2025/10/18,2025-10-18 13:00:00,2025-10-18 17:00:00,2-163　神風の伊勢の国にもあらましをなにしか来けむ君もあらなくに / 大伯皇女,9:00,10:00,8:00,12:00
-asahi2_spot_7,名刺感謝祭,朝日神社11月11日,14時～,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,参拝画像.png,2025/11/11,2025-11-11 14:00:00,2025-11-11 17:00:00,2-149　人はよし思ひ止むとも玉曼影に見えつつ忘らえぬかも / 倭大后,9:00,10:00,8:00,12:00
-asahi2_spot_8,七五三詣祈祷,朝日神社11月15日,9時～17時,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,七五三.png,2025/11/15,2025-11-15 09:00:00,2025-11-15 17:00:00,2-124　人皆は今は長しとたけと言へど君が見し髪乱れたりとも〔娘子〕 / 園臣生羽之女,9:00,10:00,8:00,12:00
-asahi2_spot_9,秋葉社大祭,朝日神社12月16日,13時半,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,参拝画像.png,2025/12/16,2025-12-16 13:30:00,2025-12-16 15:30:00,2-116　人言を繁み言痛み己が世にいまだ渡らぬ朝川渡る / 但馬皇女,9:00,10:00,8:00,12:00
-asahi2_spot_10,大祓式,朝日神社12月31日,15時,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,大祓式.png,2025/12/31,2025-12-31 15:00:00,2025-12-31 18:00:00,2-185　水伝ふ磯の浦廻の石つつじ茂く咲く道をまた見なむかも / 舎人,9:00,10:00,8:00,12:00
-asahi2_spot_11,歳旦祭,朝日神社1月1日,saitansai,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,正月.png,2026/1/1,2025-03-18 08:00:00,2025-06-18 16:00:00,2-148　青旗の木幡の上を通ふとは目には見れども直に逢はぬかも / 倭大后,9:00,10:00,8:00,12:00
-asahi2_spot_12,節分厄除祭,朝日神社2月2日,10時～15時,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,節分.png,2026/2/2,,,1-84　秋さらば今も見るごと妻恋ひに鹿鳴かむ山そ高野原の上 / 長皇子,7:00,21:00,8:00,12:00
-asahi2_spot_13,祈年祭,朝日神社3月17日,10時～,35.169105147530715,136.9038978548256,gpsDate,https://jinja-net.jp/stamp-asahi2/image/%E6%9C%9D%E6%97%A5%E7%A5%9E%E7%A4%BE%E7%94%B1%E7%B7%92.png,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,参拝画像.png,2026/3/17,,,2-88　秋の田の穂の上に霧らふ朝霞いつへの方にわが恋ひ止まむ / 磐姫皇后,20:00,21:00,8:00,12:00
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,,,
+　式内社研究部会",34.48450734048243,136.72693322889572,sample,https://www.jinja-net.jp/jinja-shi/,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,https://digitalpamph.nta.co.jp/library/f-pub/index.php,参拝画像.png,進まざる者は必ず退き、退かざる者は必ず進む。(福澤諭吉)
+toyohasi_spot_01,豊橋駅,　　　出発地点,　神社までは徒歩で。,34.49108925241859,136.70943966111875,gps,,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,豊橋駅.png,1-75　宇治間山朝風寒し旅にして衣貸すべき妹もあらなくに / 長屋王
+toyohasi_spot_02,吉田神社,豊橋駅,hutaminouraeki,34.77030240065999,137.38989139322553,gps,http://toyohashi-yoshida.com/,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,吉田神社.png,3-243　王は千歳にいまさむ白雲も三船の山に絶ゆる日あらめや / 春日王 (1)
+toyohasi_spot_03,安久美神戸神明社,豊橋駅,misiodonojinja,34.76810789772779,137.39459062290263,gps,https://toyohashi-shinmeisha.jp/,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,安久美神戸神明社.png,3-247　沖つ波辺波立つともわが背子が御船の泊り波立ためやも / 石川大夫 (1)
+toyohasi_spot_04,吉田城,豊橋駅,三重交通,34.770381718950446,137.39320660320323,gps,https://www.city.toyohashi.lg.jp/48101.htm,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,吉田城.png,2-142　家にあれば笥に盛る飯を草枕旅にしあれば椎の葉に盛る / 有間皇子
+toyohasi_spot_05,蒲郡駅,,JR,34.822621566572415,137.2259525549916,gps,,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,蒲郡駅.png,1-83　海の底奥つ白波竜田山いつか越えなむ妹があたり見む / 長田王
+toyohasi_spot_06,八百富神社,蒲郡駅,ejinja,34.81105882613909,137.2317734747365,gps,https://yaotomi.net/,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,竹島神社.png,1-33　楽浪の国つ御神のうらさびて荒れたる都見れば悲しも / 高市連黒人
