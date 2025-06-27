@@ -1,13 +1,25 @@
-﻿historicSpotId,name,areaName,yomigana,latitude,longitude,typeRegisterStamp,url,gpsMeter,worship_card_top_image_url,worshipUrl,img,proverbs
-koudai_spot_01,"神社検索ｼｽﾃﾑ研究部会
+﻿historicSpotId,name,areaName,yomigana,latitude,longitude,typeRegisterStamp,url,gpsMeter,worship_card_top_image_url,worshipUrl,img,date,dateStart,dateEnd,proverbs,timeStartWeekDays,timeEndWeekDays,timeStartHoliday,timeEndHoliday
+jinguu_spot_01,"神社検索ｼｽﾃﾑ研究部会
 　部会長：新田均",活動拠点,"　皇學館大学
-現代日本社会学部",34.48450734048243,136.72693322889572,sample,https://jinja-net.jp/jinja-all/index.html,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,https://digitalpamph.nta.co.jp/library/f-pub/index.php,参拝画像.png,人間のやったことは、人間がまだやれることの100分の1にすぎない。(豊田佐吉 )
-koudai_spot_02,"　　神社史研究会　　
+現代日本社会学部",34.48450734048243,136.72693322889572,sample,https://jinja-net.jp/jinja-all/index.html,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,参拝画像.png,,,,人間のやったことは、人間がまだやれることの100分の1にすぎない。(豊田佐吉 ),9:00,10:00,8:00,12:00
+jinguu_spot_02,"　　神社史研究会　　
 　会長：白山芳太郎",活動団体,"皇學館大学神道学科
-　式内社研究部会",34.48450734048243,136.72693322889572,sample,https://www.jinja-net.jp/jinja-shi/,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,https://digitalpamph.nta.co.jp/library/f-pub/index.php,参拝画像.png,進まざる者は必ず退き、退かざる者は必ず進む。(福澤諭吉)
-toyohasi_spot_01,豊橋駅,　　　出発地点,　神社までは徒歩で。,34.49108925241859,136.70943966111875,gps,,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,豊橋駅.png,1-75　宇治間山朝風寒し旅にして衣貸すべき妹もあらなくに / 長屋王
-toyohasi_spot_02,吉田神社,豊橋駅,hutaminouraeki,34.77030240065999,137.38989139322553,gps,http://toyohashi-yoshida.com/,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,吉田神社.png,3-243　王は千歳にいまさむ白雲も三船の山に絶ゆる日あらめや / 春日王 (1)
-toyohasi_spot_03,安久美神戸神明社,豊橋駅,misiodonojinja,34.76810789772779,137.39459062290263,gps,https://toyohashi-shinmeisha.jp/,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,安久美神戸神明社.png,3-247　沖つ波辺波立つともわが背子が御船の泊り波立ためやも / 石川大夫 (1)
-toyohasi_spot_04,吉田城,豊橋駅,三重交通,34.770381718950446,137.39320660320323,gps,https://www.city.toyohashi.lg.jp/48101.htm,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,吉田城.png,2-142　家にあれば笥に盛る飯を草枕旅にしあれば椎の葉に盛る / 有間皇子
-toyohasi_spot_05,蒲郡駅,,JR,34.822621566572415,137.2259525549916,gps,,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,,蒲郡駅.png,1-83　海の底奥つ白波竜田山いつか越えなむ妹があたり見む / 長田王
-toyohasi_spot_06,八百富神社,蒲郡駅,ejinja,34.81105882613909,137.2317734747365,gps,https://yaotomi.net/,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,竹島神社.png,1-33　楽浪の国つ御神のうらさびて荒れたる都見れば悲しも / 高市連黒人
+　式内社研究部会",34.48450734048243,136.72693322889572,sample,https://www.jinja-net.jp/jinja-shi/,20,https://jinja-net.jp/stamp-jinguu8/image/参拝カード2.png,https://smart-gosyuin.jp/,参拝画像.png,,,,進まざる者は必ず退き、退かざる者は必ず進む。(福澤諭吉),9:00,10:00,8:00,12:00
+nexco-1017,安濃SA,伊勢自動車道,ano,34.778375419739156,136.4715433332016,gps,https://sapa.c-nexco.co.jp/sapa?sapainfoid=138,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,安濃SA.png,2026/03/18,2026/03/17 10:00,2026/03/17 12:00,2-190　真木柱太き心はありしかどこのあが心鎮めかねつも / 舎人,9:00,10:00,8:00,12:00
+nexco-1024,多気PA,伊勢自動車道,taki,34.46510822262419,136.57217712743017,gps,https://sapa.c-nexco.co.jp/sapa?sapainfoid=142,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,多気PA.png,2026/03/25,2026/03/17 10:00,2026/03/17 12:00,1-84　秋さらば今も見るごと妻恋ひに鹿鳴かむ山そ高野原の上 / 長皇子,9:00,10:00,8:00,12:00
+nexco-1025,玉城IC,伊勢自動車道,tamaki,34.48259312660164,136.6011019223116,gps,https://jinja-net.jp/jinjacho-mie/jsearch3mie.php?jinjya=63404,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,東外城田神社.png,,,,2-88　秋の田の穂の上に霧らふ朝霞いつへの方にわが恋ひ止まむ / 磐姫皇后,9:00,10:00,8:00,12:00
+nexco-0101,竹神社駐車場,明和観光,明和町大字斎宮,34.53679961811058,136.6182933,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0102,竹神社,明和観光,明和町大字斎宮,34.53728273202614,136.6187386050242,gps,,100000,,,,,,,,10:00,11:00,8:00,12:00
+nexco-0103,さいくう平安の杜,明和観光,明和町斎宮２８００,34.53843447,136.6186859688441,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0104,いつき茶屋,明和観光,明和町斎宮２９６９−４,34.53880028825991,136.6164435621967,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0105,いつきのみや歴史体験館,明和観光,明和町斎宮３０４６−２５,34.53818794951348,136.61619187758816,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0106,斎宮歴史博物館,明和観光,明和町竹川５０３,34.54260161304128,136.6097586784656,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0107,隆子女王の墓,明和観光,明和町馬之上,34.55485620585026,136.6267927326376,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0108,竹大與杼神社,式内社,明和町大字大淀乙,34.560948605545725,136.65506005850773,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0109,伊呂上神社跡,式内社,明和町中村,34.582188232638046,136.6390397681774,gps,,100000,,,,,,,,7:00,21:00,8:00,12:00
+nexco-0110,畠田神社 三座,式内社,明和町中村,34.586620926631156,136.6194747,gps,,100000,,,,,,,,20:00,21:00,8:00,12:00
+nexco-0111,佐支栗栖神社 二座,式内社,明和町中村,34.575343172821825,136.6144077730151,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0112,麻績神社,式内社,明和町大字中海,34.55670851373701,136.6134325193193,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0113,宇爾桜神社,駐車場所,明和町有爾中,34.52042645482911,136.61646885959757,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
+nexco-0114,宇爾桜神社,式内社,明和町有爾中,34.52040104055118,136.61541609260325,gps,https://sapa.c-nexco.co.jp/sapa?sapainfoid=138,100000,https://jinja-net.jp/stamp-jinguu8/image/参拝カード.png,,安濃SA.png,2026/03/18,2026/03/17 10:00,2026/03/17 12:00,2-190　真木柱太き心はありしかどこのあが心鎮めかねつも / 舎人,9:00,10:00,8:00,12:00
+nexco-1017,安濃SA,伊勢自動車道,ano,34.778375419739156,136.4715433332016,gps,,100000,,,,,,,,9:00,10:00,8:00,12:00
