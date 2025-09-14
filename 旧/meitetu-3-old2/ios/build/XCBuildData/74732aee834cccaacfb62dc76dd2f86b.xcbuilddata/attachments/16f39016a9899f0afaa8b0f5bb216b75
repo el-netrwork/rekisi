@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Debug-iphoneos/app_links/app_links.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Debug-iphoneos/app_links/app_links.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "app_links-Swift.h",
+      'external-contents': "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/unextended-interface-header.h",
+    }]
+    }]
+}

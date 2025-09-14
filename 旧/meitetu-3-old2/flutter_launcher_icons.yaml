@@ -1,0 +1,7 @@
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "./extras/app_icon_cropped.png"
+  image_path_android:  "./extras/app_icon_android.png"
+  adaptive_icon_background: '#EF6985'
+  adaptive_icon_foreground: "./extras/app_icon_android_foreground.png"

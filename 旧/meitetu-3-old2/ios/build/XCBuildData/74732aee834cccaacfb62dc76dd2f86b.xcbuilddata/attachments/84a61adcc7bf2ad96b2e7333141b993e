@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/app_links-master.dia",
+    "emit-module-dependencies" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/app_links-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/app_links-master-emit-module.dia",
+    "swift-dependencies" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/app_links-master.swiftdeps"
+  },
+  "/Users/.pub-cache/hosted/pub.dev/app_links-6.3.2/ios/Classes/SwiftAppLinksPlugin.swift" : {
+    "const-values" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.swiftconstvalues",
+    "dependencies" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.d",
+    "diagnostics" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.o",
+    "llvm-bc" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.bc",
+    "object" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.o",
+    "swift-dependencies" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin.swiftdeps",
+    "swiftmodule" : "/Users/ochiainaoto/rekisi/meitetu-3/ios/build/Pods.build/Debug-iphoneos/app_links.build/Objects-normal/arm64/SwiftAppLinksPlugin~partial.swiftmodule"
+  }
+}

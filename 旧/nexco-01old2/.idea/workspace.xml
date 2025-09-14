@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b0cf874b-9135-49f5-a275-6ae342542bb8" name="Changes" comment="ニューデザインアプリ">
+      <change beforePath="$PROJECT_DIR$/../nexco-01/extras/app_icon_android.png" beforeDir="false" afterPath="$PROJECT_DIR$/../nexco-01/extras/app_icon_android.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nexco-01/extras/app_icon_android_foreground.png" beforeDir="false" afterPath="$PROJECT_DIR$/../nexco-01/extras/app_icon_android_foreground.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nexco-01/extras/app_icon_cropped.png" beforeDir="false" afterPath="$PROJECT_DIR$/../nexco-01/extras/app_icon_cropped.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2pqHiC0L4amhKmqO1r5QvabZ9Cs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "io.flutter.reload.alreadyRun": "true",
+    "last_opened_file_path": "/Users/ochiainaoto/rekisi/nexco-01old2",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/extras" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/app" />
+      <recent name="$PROJECT_DIR$/extras" />
+      <recent name="$PROJECT_DIR$/android/app/src" />
+      <recent name="$PROJECT_DIR$/android" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Flutter.develop">
+    <configuration name="develop" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="additionalArgs" value="--dart-define-from-file=lib/app/configuration/develop/dart_defines_development.json" />
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Flutter.main.dart" />
+      <item itemvalue="Flutter.develop" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b0cf874b-9135-49f5-a275-6ae342542bb8" name="Changes" comment="" />
+      <created>1733486809661</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733486809661</updated>
+    </task>
+    <task id="LOCAL-00001" summary="変更">
+      <option name="closed" value="true" />
+      <created>1734137312873</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1734137312873</updated>
+    </task>
+    <task id="LOCAL-00002" summary="iphoneのリリースで苦戦しています。&#10;もうしこし頑張りますが取り敢えず共有します。">
+      <option name="closed" value="true" />
+      <created>1736642264309</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1736642264309</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="変更" />
+    <MESSAGE value="iphoneのリリースで苦戦しています。&#10;もうしこし頑張りますが取り敢えず共有します。" />
+    <option name="LAST_COMMIT_MESSAGE" value="iphoneのリリースで苦戦しています。&#10;もうしこし頑張りますが取り敢えず共有します。" />
+  </component>
+</project>

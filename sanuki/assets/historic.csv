@@ -1,0 +1,14 @@
+historicSpotId,name,areaName,yomigana,latitude,longitude,typeRegisterStamp,url,gpsMeter
+takeru_spot_01,皇學館大学,活動拠点,kokusikandaigaku,34.48449097856422,136.72694271067283,sample,https://www.kogakkan-u.ac.jp/,50
+takeru_spot_02,神社史研究会,活動団体,jinjyasikenkyukai,34.48449097856422,136.72694271067283,sample,https://www.jinja-net.jp/jinja-shi/,50
+takeru_spot_1,忍山神社,三重県（亀山）,osiyamajinja,34.85506517250340,136.43685577966100,qr,https://www.jinja-net.jp/jinja-all/jsearch3all.php?jinjya=63872,50
+takeru_spot_2,布氣皇舘太神社,三重県（亀山）,hukekoutatudaijinja,34.857477456780400,136.42828344017900,gps,https://www.jinja-net.jp/jinja-all/jsearch3all.php?jinjya=63874,50
+takeru_spot_3,能褒野神社,三重県（亀山）,nobonojinja,34.885732890751000,136.48328207969200,gps,https://www.jinja-net.jp/jinja-all/jsearch3all.php?jinjya=3036,50
+takeru_spot_4,能褒野墓,三重県（亀山）,nobonobaka,34.88428539416190,136.48245659688200,gps,https://www.city.kameyama.mie.jp/docs/2014112312102/,50
+takeru_spot_5,ヤマトタケル像,三重県（亀山）,yamatotakeruzou,34.85064613213100,136.45057534699700,gps,https://www.city.kameyama.mie.jp/kosodate_yuyu/news/2023022200010/,50
+takeru_spot_6,加佐登神社,三重県（鈴鹿）,kasadojinja,34.90028356758390,136.52729555455300,gps,https://www.kasado-jinja.com/,50
+takeru_spot_7,白鳥塚,三重県（鈴鹿）,siratoriduka,34.901559864856800,136.5258117680470,gps,https://www.bunka.pref.mie.lg.jp/bunkazai/da/daItemDetail?mngnum=730791&pageCur=3,50
+takeru_spot_8,杖衝坂,三重県（四日市）,tuetukisaka,34.917844439796900,136.5798709931700,gps,https://www.kankomie.or.jp/spot/18302,50
+takeru_spot_9,長瀬神社,三重県（鈴鹿）,nagasejinja,34.9429826253041,136.48096133595536,gps,https://www.jinja-net.jp/jinja-all/jsearch3all.php?jinjya=3022,50
+takeru_spot_10,武備塚古墳,三重県（鈴鹿）,takebidukakohun,34.943346542725415,136.48108219888567,gps,https://www.bunka.pref.mie.lg.jp/map/detail?b_id=453390&zoom=18&cb0=true&cb1=undefined&cb2=true&cb3=false&cb4=false&cb5=false&cb6=false,50
+takeru_spot_11,双児塚古墳,三重県（鈴鹿）,hutagodukakohun,34.93832063903075,136.47019688539362,gps,https://kofuntokaare.fc2.net/blog-entry-641.html,50
