@@ -1,26 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'get_places_use_case.dart';
+part of 'complete_card_repository.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getPlacesUseCaseHash() => r'06b7f3aaefc9e1003fc2b5617a7f67e720c428da';
+String _$completeCardRepositoryHash() =>
+    r'3e4a7f91eb4fbfdaee8b4dea38ae3dc556fbda82';
 
-/// See also [getPlacesUseCase].
-@ProviderFor(getPlacesUseCase)
-final getPlacesUseCaseProvider =
-    AutoDisposeFutureProvider<List<PlaceModel>>.internal(
-  getPlacesUseCase,
-  name: r'getPlacesUseCaseProvider',
+/// See also [completeCardRepository].
+@ProviderFor(completeCardRepository)
+final completeCardRepositoryProvider =
+    Provider<CompleteCardRepository>.internal(
+  completeCardRepository,
+  name: r'completeCardRepositoryProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$getPlacesUseCaseHash,
+      : _$completeCardRepositoryHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef GetPlacesUseCaseRef = AutoDisposeFutureProviderRef<List<PlaceModel>>;
+typedef CompleteCardRepositoryRef = ProviderRef<CompleteCardRepository>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

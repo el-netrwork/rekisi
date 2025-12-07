@@ -9,14 +9,14 @@ import 'package:stamp_rally/common/components/custom_network_image.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/services/location_service.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/register_complete_card_use_case_provider.dart';
 import 'package:stamp_rally/features/place/provider/place_scoped_provider.dart';
 import 'package:stamp_rally/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/register_complete_card_use_case_provider.dart';
+import 'package:stamp_rally/pages/history/provider/show_top_message_provider.dart';
 import 'package:stamp_rally/pages/history/widget/alert_qr_register_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/complete_card_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/worship_card_dialog.dart';
 import '../../common/components/show_progress_dialog.dart';
-import 'controller/history_page_content_controller_keep_alive.dart';
 import 'widget/alert_gps_register_dialog.dart';
 
 class HistoryPageContent extends HookConsumerWidget {
@@ -55,9 +55,7 @@ class HistoryPageContent extends HookConsumerWidget {
     });
 
     final stampAsync = ref.watch(fetchStampedPlaceUseCaseProvider);
-    final isShowDownloadMessage = ref.watch(
-        historyPageContentControllerKeepAliveProvider
-            .select((value) => value.isShowDownloadMessage));
+    final isShowDownloadMessage = ref.watch(showTopMessageProviderProvider);
     return switch (stampAsync) {
       AsyncData(:final value) => MediaQuery(
           data:
@@ -92,7 +90,7 @@ class HistoryPageContent extends HookConsumerWidget {
                                   onPressed: () {
                                     ref
                                         .read(
-                                            historyPageContentControllerKeepAliveProvider
+                                        showTopMessageProviderProvider
                                                 .notifier)
                                         .hideMessage();
                                   },

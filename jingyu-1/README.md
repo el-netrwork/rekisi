@@ -49,3 +49,8 @@ flutter build appbundle --release --dart-define-from-file=lib/app/configuration/
 5. build/app/outputs/bundle/release/app-release.aabの、「app-release.aab」が作成され、このファイルが著名付きアプリ。
 
 6. Google Play Consoleに5で作成されたファイルをアップする。
+
+```
+/Applications/Android\ Studio.app/Contents/jbr/Contents/Home/bin/keytool -export -rfc -keystore key.jks -alias jingyu-1 -file upload_certificate.pem
+
+```
