@@ -2,8 +2,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:image_gallery_saver/image_gallery_saver.dart';
-import 'package:stamp_rally/assets/assets.gen.dart';
+import 'package:image_gallery_saver_plus/image_gallery_saver_plus.dart';
 import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/data/model/place_model.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
@@ -210,7 +209,7 @@ class _CompleteButton extends HookConsumerWidget {
                       final pngBytes = await globalKey.createWidgetImage();
 
                       // 結果を保存
-                      final result = await ImageGallerySaver.saveImage(
+                      final result = await ImageGallerySaverPlus.saveImage(
                           quality: 100, pngBytes);
                       if (context.mounted) {
                         context.pop();

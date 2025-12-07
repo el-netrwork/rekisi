@@ -30,7 +30,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-.fvm/flutter_sdk
 
 # Symbolication related
 app.*.symbols
@@ -47,3 +46,6 @@ app.*.map.json
 keystore.properties
 
 **/ios/Flutter/Dart-Defines.xcconfig
+
+# FVM Version Cache
+.fvm/
