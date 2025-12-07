@@ -47,4 +47,5 @@ const _$TypeRegisterStampEnumMap = {
   TypeRegisterStamp.gps: 'gps',
   TypeRegisterStamp.qr: 'qr',
   TypeRegisterStamp.sample: 'sample',
+  TypeRegisterStamp.gpsDate: 'gpsDate',
 };

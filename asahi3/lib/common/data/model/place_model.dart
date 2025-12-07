@@ -4,7 +4,7 @@ import 'package:stamp_rally/common/data/dto/place_dto.dart';
 
 part 'place_model.freezed.dart';
 
-enum TypeRegisterStamp { gps, qr, sample }
+enum TypeRegisterStamp { gps, qr, sample, gpsDate }
 
 @freezed
 class PlaceModel with _$PlaceModel {

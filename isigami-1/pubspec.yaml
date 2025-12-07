@@ -1,7 +1,7 @@
 name: stamp_rally
 description: "Stamp Rally"
 publish_to: 'none'
-version: 1.0.3+10
+version: 1.0.4+11
 
 environment:
   sdk: '>=3.2.6 <4.0.0'

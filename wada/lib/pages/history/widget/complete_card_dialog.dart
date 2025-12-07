@@ -10,8 +10,9 @@ import 'package:stamp_rally/assets/assets.gen.dart';
 import 'package:stamp_rally/common/components/loading_snack_bar.dart';
 import 'package:stamp_rally/common/extensions/async_value.dart';
 import 'package:stamp_rally/common/services/open_another_url_service.dart';
-import 'package:stamp_rally/features/complete_card/provider/complete_card_scoped_provider.dart';
-import 'package:stamp_rally/features/complete_card/provider/fetch_complete_card_use_case.dart';
+import 'package:stamp_rally/pages/history/provider/complete_card_scoped_provider.dart';
+import 'package:stamp_rally/pages/history/provider/fetch_complete_card_use_case.dart';
+
 
 void showCompleteCardDialog(BuildContext context) {
   showGeneralDialog(

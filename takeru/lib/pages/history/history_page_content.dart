@@ -7,12 +7,12 @@ import 'package:stamp_rally/assets/assets.gen.dart';
 import 'package:stamp_rally/core/features/stamp/provider/fetch_stamped_place_use_case_provider.dart';
 import 'package:stamp_rally/pages/history/provider/register_complete_card_use_case_provider.dart';
 import 'package:stamp_rally/pages/history/provider/place_scoped_provider.dart';
+import 'package:stamp_rally/pages/history/provider/show_top_message_provider.dart';
 import 'package:stamp_rally/pages/history/widget/alert_qr_register_dialog.dart';
 import 'package:stamp_rally/pages/history/widget/complete_card_dialog.dart';
 import '../../core/common/components/custom_network_image.dart';
 import '../../core/common/data/model/place_model.dart';
 import '../../core/common/services/open_another_url_service.dart';
-import 'provider/show_download_page_handler.dart';
 import 'widget/alert_gps_register_dialog.dart';
 
 class HistoryPageContent extends HookConsumerWidget {
@@ -51,7 +51,7 @@ class HistoryPageContent extends HookConsumerWidget {
     });
 
     final stampAsync = ref.watch(fetchStampedPlaceUseCaseProvider);
-    final isShowDownloadMessage = ref.watch(showDownloadPageHandlerProvider);
+    final isShowDownloadMessage = ref.watch(showTopMessageProviderProvider);
     return switch (stampAsync) {
       AsyncData(:final value) => MediaQuery(
           data:
@@ -85,9 +85,9 @@ class HistoryPageContent extends HookConsumerWidget {
                                 child: IconButton(
                                   onPressed: () {
                                     ref
-                                        .read(showDownloadPageHandlerProvider
+                                        .read(showTopMessageProviderProvider
                                             .notifier)
-                                        .hide();
+                                        .hideMessage();
                                   },
                                   color: Colors.black,
                                   iconSize: 20,
